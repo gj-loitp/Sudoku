@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sudoku</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sudoku">SUDOKU</string>
+    <string name="the_classic_puzzle">THE CLASSIC PUZZLE</string>
+    <string name="about">ABOUT</string>
+    <string name="solve_sudoku">SOLVE A SUDOKU</string>
+    <string name="play">PLAY !!</string>
+</resources>
