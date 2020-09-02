@@ -7,4 +7,5 @@
     <string name="about">ABOUT</string>
     <string name="solve_sudoku">SOLVE A SUDOKU</string>
     <string name="play">PLAY !!</string>
+    <string name="solve">SOLVE !!</string>
 </resources>
