@@ -8,4 +8,15 @@
     <string name="solve_sudoku">SOLVE A SUDOKU</string>
     <string name="play">PLAY !!</string>
     <string name="solve">SOLVE !!</string>
+    <string name="sudoku_solver">SUDOKU SOLVER</string>
+    <string name="nine">9</string>
+    <string name="eight">8</string>
+    <string name="seven">7</string>
+    <string name="six">6</string>
+    <string name="five">5</string>
+    <string name="four">4</string>
+    <string name="three">3</string>
+    <string name="two">2</string>
+    <string name="one">1</string>
+    <string name="clear">CLR</string>
 </resources>
