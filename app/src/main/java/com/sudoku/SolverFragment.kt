@@ -1,10 +1,13 @@
 package com.sudoku
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import org.jetbrains.anko.toast
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 class SolverFragment : Fragment(), View.OnClickListener {
@@ -20,6 +23,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
 
         val view:View = inflater.inflate(R.layout.fragment_solver, container, false)
 
+        Log.i("Solver","in solver fragment")
         val b11:Button = view.findViewById(R.id.b11)
         val b12:Button = view.findViewById(R.id.b12)
         val b13:Button = view.findViewById(R.id.b13)
@@ -339,18 +343,20 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 return
             }
             R.id.solveButton -> {
-                if (selectedButton?.text?.isEmpty()!!) selectedButton!!.setBackgroundResource(R.drawable.button_border)
+                if(selectedButton != null)
+                if (selectedButton?.text?.isEmpty()!!)
+                    selectedButton!!.setBackgroundResource(R.drawable.button_border)
+                Log.i("solver","solve button clicked")
                 getData()
-                if (solve()){
+                if (solve()) {
                     showResult()
-                }
-                else{
-                    // Show Toast/Alert box Here
+                } else {
+                    Toast.makeText(activity, "Please check your entries. No possible solution exists for this input.", Toast.LENGTH_SHORT).show()
+                    Log.i("solver","reached else block safely")
                 }
                 return
             }
         }
-
         if (selectedButton != null){
             if (selectedButton!!.text.toString().isEmpty() ) selectedButton!!.setBackgroundResource(R.drawable.button_border)
         }
@@ -370,7 +376,6 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
             }
         }
-
     }
 
     private fun showResult(){
@@ -385,18 +390,20 @@ class SolverFragment : Fragment(), View.OnClickListener {
         }
     }
 
-
     // Code to Solve Sudoku Present here
 
     private fun isSafe(row:Int, col:Int, num:Int):Boolean{
 
         for (d in 0 until 9){
+            if(d==col)
+                continue
             if (userInputBoard[row][d] == num){
                 return false
             }
         }
-
         for (r in 0 until 9){
+            if(r==row)
+                continue
             if (userInputBoard[r][col] == num){
                 return false
             }
@@ -408,18 +415,17 @@ class SolverFragment : Fragment(), View.OnClickListener {
 
         for (r in boxRowStart until (boxRowStart+sqrt)){
             for (d in boxColStart until (boxColStart+sqrt)){
+                if(d==col && r==row)
+                    continue
                 if (userInputBoard[r][d] == num){
                     return false
                 }
             }
         }
-
         return true
-
     }
 
     private fun solveSudoku(N:Int):Boolean{
-
         var row = -1
         var col = -1
         var isEmpty = true
@@ -428,7 +434,6 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 if (userInputBoard[i][j] == 0){
                     row = i
                     col = j
-
                     isEmpty = false
                     break
                 }
@@ -437,11 +442,9 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 break
             }
         }
-
         if (isEmpty){
             return true
         }
-
         for (num in 1 until N+1){
             if (isSafe(row, col, num)){
                 userInputBoard[row][col] = num
@@ -455,12 +458,16 @@ class SolverFragment : Fragment(), View.OnClickListener {
         }
         return false
     }
-
     private fun solve():Boolean{
-
-        val N:Int = 9
+        for(row in 0..8){
+            for(col in 0..8){
+                if(userInputBoard[row][col]!=0){
+                    if(!isSafe(row,col,userInputBoard[row][col]))
+                    return false
+                }
+            }
+        }
+        val N = 9
         return solveSudoku(N)
-
     }
-
 }
