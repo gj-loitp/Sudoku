@@ -1,14 +1,19 @@
 package com.sudoku
 
+import android.annotation.SuppressLint
 import android.graphics.Typeface.BOLD
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_play_screen.*
 
 class PlayScreen : Fragment(), View.OnClickListener {
     private var selectedButton: Button? = null
@@ -16,6 +21,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
     private var matrix = Array(9) {IntArray(9) {0} }
     private var buttonMap = HashMap<String, Button>()
     private var reverseMap = HashMap<Button, String>()
+    public  var initialSolveTime = 900000L
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +31,32 @@ class PlayScreen : Fragment(), View.OnClickListener {
         val view:View = inflater.inflate(R.layout.fragment_play_screen, container, false)
 
         Log.i("Solver","in play fragment")
+
+        object : CountDownTimer(initialSolveTime, 1000){
+            @SuppressLint("SetTextI18n")
+            override fun onTick(p0: Long) {
+                var displayTimerText:String?
+                val minutes = (p0 / 1000 / 60).toInt()
+                displayTimerText = if (minutes / 10 == 0) "0$minutes:"
+                else "$minutes:"
+
+                val seconds = (p0 / 1000).toInt() % 60
+                displayTimerText += if (seconds / 10 == 0) "0$seconds"
+                else "$seconds"
+
+                timer.text = displayTimerText
+            }
+
+            override fun onFinish() {
+                // Time is up
+            }
+
+        }.start()
+
+        val openSettingButton: Button = view.findViewById(R.id.settingButton)
+        openSettingButton.setOnClickListener {
+            view.findNavController().navigate(R.id.action_playScreen_to_settingFragment)
+        }
 
         val b11: Button = view.findViewById(R.id.b11)
         val b12: Button = view.findViewById(R.id.b12)
