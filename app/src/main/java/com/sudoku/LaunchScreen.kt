@@ -17,7 +17,7 @@ class LaunchScreen : Fragment() {
         val view = inflater.inflate(R.layout.fragment_launch_screen, container, false)
         val playButton = view.findViewById<Button>(R.id.play)
         playButton.setOnClickListener {
-            view.findNavController().navigate(R.id.action_launchScreen_to_playScreen)
+            view.findNavController().navigate(R.id.action_launchScreen_to_difficultyFragment)
         }
         val aboutButton = view.findViewById<Button>(R.id.about_button)
         aboutButton.setOnClickListener {

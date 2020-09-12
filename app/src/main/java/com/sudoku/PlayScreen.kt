@@ -53,11 +53,6 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
         }.start()
 
-        val openSettingButton: Button = view.findViewById(R.id.settingButton)
-        openSettingButton.setOnClickListener {
-            view.findNavController().navigate(R.id.action_playScreen_to_settingFragment)
-        }
-
         val b11: Button = view.findViewById(R.id.b11)
         val b12: Button = view.findViewById(R.id.b12)
         val b13: Button = view.findViewById(R.id.b13)
