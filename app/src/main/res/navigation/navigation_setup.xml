@@ -25,8 +25,8 @@
         android:label="fragment_play_screen"
         tools:layout="@layout/fragment_play_screen" >
         <action
-            android:id="@+id/action_playScreen_to_difficultyFragment"
-            app:destination="@id/difficultyFragment" />
+            android:id="@+id/action_playScreen_to_launchScreen"
+            app:destination="@id/launchScreen" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"

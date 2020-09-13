@@ -897,6 +897,24 @@
             android:textStyle="bold" />
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="139dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/round_white_buttons"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        android:text="@string/reset"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/inputButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sudokuMatrix"
+        app:layout_constraintVertical_bias="0.0" />
+
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/inputButtons"
         android:layout_width="wrap_content"

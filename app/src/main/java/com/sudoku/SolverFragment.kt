@@ -292,7 +292,9 @@ class SolverFragment : Fragment(), View.OnClickListener {
         nine.setOnClickListener(this)
 
         val solve:Button = view.findViewById(R.id.solveButton)
+        val reset:Button = view.findViewById(R.id.resetButton)
 
+        reset.setOnClickListener(this)
         solve.setOnClickListener(this)
 
         return view
@@ -355,6 +357,10 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+            R.id.resetButton -> {
+                resetBoard()
+                return
+            }
         }
         if (selectedButton != null){
             if (selectedButton!!.text.toString().isEmpty() ) selectedButton!!.setBackgroundResource(R.drawable.button_border)
@@ -373,6 +379,16 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 if (buttonMap[buttonId]?.text.toString().isNotEmpty()){
                     userInputBoard[i][j] = buttonMap[buttonId]?.text.toString().toInt()
                 }
+            }
+        }
+    }
+
+    fun resetBoard(){
+        for (i in 0 until 9){
+            for (j in 0 until 9){
+                userInputBoard[i][j] = 0
+                buttonMap["b${i+1}${j+1}"]?.text = ""
+                buttonMap["b${i+1}${j+1}"]?.setBackgroundResource(R.drawable.button_border)
             }
         }
     }

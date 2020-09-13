@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_play_screen.*
+import org.jetbrains.anko.find
 
 class PlayScreen : Fragment(), View.OnClickListener {
     private var selectedButton: Button? = null
@@ -34,10 +35,10 @@ class PlayScreen : Fragment(), View.OnClickListener {
         Log.i("Solver","in play fragment")
 
         difficultyLevel = arguments?.getString("difficulty_text").toString()
-        var initialSolveTime:Long = 900000L
+        var initialSolveTime  = 900000L
         if (difficultyLevel == "easy") initialSolveTime = 900000L
-        if (difficultyLevel == "medium") initialSolveTime = 600000L
-        if (difficultyLevel == "hard") initialSolveTime = 300000L
+        else if (difficultyLevel == "medium") initialSolveTime = 600000L
+        else  initialSolveTime = 300000L
 
         object : CountDownTimer(initialSolveTime, 1000){
             @SuppressLint("SetTextI18n")
@@ -492,6 +493,9 @@ class PlayScreen : Fragment(), View.OnClickListener {
         eight.setOnClickListener(this)
         nine.setOnClickListener(this)
 
+        val reset:Button = view.findViewById(R.id.resetButton)
+        reset.setOnClickListener(this)
+
         return view
     }
 
@@ -620,6 +624,10 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+            R.id.resetButton -> {
+                resetBoard()
+                return
+            }
         }
 
         if (selectedButton != null){
@@ -627,6 +635,19 @@ class PlayScreen : Fragment(), View.OnClickListener {
         }
         selectedButton = v as Button
         selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
+    }
+
+    fun resetBoard(){
+
+        for (i in 0 until 9){
+            for (j in 0 until 9){
+                if (buttonMap["b${i+1}${j+1}"]?.isClickable!!){
+                    buttonMap["b${i+1}${j+1}"]?.text = ""
+                    userInputBoard[i][j] = 0
+                }
+            }
+        }
+
     }
 
     private fun check() {

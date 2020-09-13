@@ -19,6 +19,7 @@
     <string name="two">2</string>
     <string name="one">1</string>
     <string name="clear">CLR</string>
+    <string name="reset">RESET</string>
     <string name="initial_timer">15:00</string>
     <string name="filling_the_numbers">Filling the Numbers</string>
     <string name="instructions_1">Click on the box you wish to fill the number in. Once it becomes grey, click on the number you want to fill from the input grid given below sudoku.</string>
