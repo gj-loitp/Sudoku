@@ -21,7 +21,8 @@ class PlayScreen : Fragment(), View.OnClickListener {
     private var matrix = Array(9) {IntArray(9) {0} }
     private var buttonMap = HashMap<String, Button>()
     private var reverseMap = HashMap<Button, String>()
-    public  var initialSolveTime = 900000L
+
+    private lateinit var difficultyLevel:String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +32,12 @@ class PlayScreen : Fragment(), View.OnClickListener {
         val view:View = inflater.inflate(R.layout.fragment_play_screen, container, false)
 
         Log.i("Solver","in play fragment")
+
+        difficultyLevel = arguments?.getString("difficulty_text").toString()
+        var initialSolveTime:Long = 900000L
+        if (difficultyLevel == "easy") initialSolveTime = 900000L
+        if (difficultyLevel == "medium") initialSolveTime = 600000L
+        if (difficultyLevel == "hard") initialSolveTime = 300000L
 
         object : CountDownTimer(initialSolveTime, 1000){
             @SuppressLint("SetTextI18n")

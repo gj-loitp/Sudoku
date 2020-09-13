@@ -23,7 +23,11 @@
         android:id="@+id/playScreen"
         android:name="com.sudoku.PlayScreen"
         android:label="fragment_play_screen"
-        tools:layout="@layout/fragment_play_screen" />
+        tools:layout="@layout/fragment_play_screen" >
+        <action
+            android:id="@+id/action_playScreen_to_difficultyFragment"
+            app:destination="@id/difficultyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.sudoku.AboutFragment"
