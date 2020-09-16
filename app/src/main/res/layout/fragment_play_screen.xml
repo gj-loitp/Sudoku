@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/background"
     tools:context=".PlayScreen">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:padding="10dp"
         android:text="@string/sudoku"
-        android:textColor="@color/textcolor"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="47sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,11 +27,11 @@
         android:layout_height="40dp"
         android:layout_marginLeft="3dp"
         android:text="@string/initial_timer"
-        android:textColor="@color/textcolor"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/sudokuMatrix"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintHorizontal_bias="0.90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0" />

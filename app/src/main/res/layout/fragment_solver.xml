@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/background"
     tools:context=".PlayScreen">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="0dp"
         android:padding="10dp"
         android:text="@string/sudoku_solver"
-        android:textColor="@color/textcolor"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -887,17 +887,16 @@
         android:id="@+id/solveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/round_white_buttons"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
         android:text="@string/solve"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@id/inputButtons"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sudokuMatrix"
         app:layout_constraintVertical_bias="0.0" />
@@ -916,8 +915,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/inputButtons"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toEndOf="@+id/solveButton"
         app:layout_constraintTop_toBottomOf="@id/sudokuMatrix"
         app:layout_constraintVertical_bias="0.0" />
 

@@ -659,14 +659,14 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
         for (i in 0 until 9){
             if (row != null) {
-                if (buttonMap["b${row}${i + 1}"]?.text?.isEmpty()!!){
+                if (buttonMap["b${row}${i + 1}"]?.isClickable!!){
                     buttonMap["b${row}${i + 1}"]?.setBackgroundResource(R.drawable.button_border)
                 }
             }
         }
         for (i in 0 until 9){
             if (col != null) {
-                if (buttonMap["b${i + 1}${col}"]?.text?.isEmpty()!!){
+                if (buttonMap["b${i + 1}${col}"]?.isClickable!!){
                     buttonMap["b${i + 1}${col}"]?.setBackgroundResource(R.drawable.button_border)
                 }
             }
@@ -696,7 +696,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
 
     private fun resetBoard(){
-
+        if (selectedButton == null) return
         removeHighlight(selectedButton!!)
         selectedButton!!.setBackgroundResource(R.drawable.button_border)
         selectedButton = null

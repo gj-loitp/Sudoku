@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/background"
     tools:context=".AboutFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="@string/filling_the_numbers"
-        android:textColor="@color/textcolor"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="35sp"
         android:gravity="center"
         android:textStyle="bold"/>
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="@string/instructions_1"
-        android:textColor="@color/buttonColor"
+        android:textColor="@color/textcolor"
         android:textSize="25sp"
         android:textStyle="italic"/>
         <androidx.appcompat.widget.AppCompatTextView
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/playing_the_game"
-            android:textColor="@color/textcolor"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="35sp"
             android:gravity="center"
             android:textStyle="bold"/>
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/instructions_2"
-            android:textColor="@color/buttonColor"
+            android:textColor="@color/textcolor"
             android:textSize="25sp"
             android:textStyle="italic"/>
         <androidx.appcompat.widget.AppCompatTextView
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/solving_a_sudoku"
-            android:textColor="@color/textcolor"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="35sp"
             android:gravity="center"
             android:textStyle="bold"/>
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/instructions_3"
-            android:textColor="@color/buttonColor"
+            android:textColor="@color/textcolor"
             android:textSize="25sp"
             android:textStyle="italic"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
