@@ -19,10 +19,16 @@
     <string name="two">2</string>
     <string name="one">1</string>
     <string name="clear">CLR</string>
+    <string name="reset">RESET</string>
+    <string name="initial_timer">15:00</string>
     <string name="filling_the_numbers">Filling the Numbers</string>
     <string name="instructions_1">Click on the box you wish to fill the number in. Once it becomes grey, click on the number you want to fill from the input grid given below sudoku.</string>
     <string name="playing_the_game">Playing the Game</string>
     <string name="instructions_2">Fill the numbers like you fill them in a Sudoku matrix. If all the numbers you have filled fit into the solution, then you would see a message that you have solved the puzzle. To play again, press back button to reach back to the menu screen.</string>
     <string name="solving_a_sudoku">Solving a Sudoku</string>
     <string name="instructions_3">Fill the numbers as they are given in the Sudoku. Once you have filled all the cells correctly, click on the Solve button to get your Sudoku solved.</string>
+    <string name="select_difficulty">SELECT DIFFICULTY</string>
+    <string name="medium">MEDIUM</string>
+    <string name="hard">HARD</string>
+    <string name="easy">EASY</string>
 </resources>

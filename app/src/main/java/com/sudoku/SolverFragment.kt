@@ -1,12 +1,13 @@
 package com.sudoku
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import org.jetbrains.anko.toast
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
@@ -293,7 +294,9 @@ class SolverFragment : Fragment(), View.OnClickListener {
         nine.setOnClickListener(this)
 
         val solve:Button = view.findViewById(R.id.solveButton)
+        val reset:Button = view.findViewById(R.id.resetButton)
 
+        reset.setOnClickListener(this)
         solve.setOnClickListener(this)
 
         return view
@@ -304,6 +307,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
         when (v?.id){
             R.id.clear -> {
                 selectedButton?.text = ""
+                selectedButton!!.setTextColor(Color.parseColor("#000000"))
                 return
             }
             R.id.one -> {
@@ -356,13 +360,24 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+            R.id.resetButton -> {
+                resetBoard()
+                return
+            }
         }
         if (selectedButton != null){
-            if (selectedButton!!.text.toString().isEmpty() ) selectedButton!!.setBackgroundResource(R.drawable.button_border)
+            if (selectedButton!!.text.toString().isEmpty() ) {
+                selectedButton!!.setTextColor(Color.parseColor("#000000"))
+                selectedButton!!.setBackgroundResource(R.drawable.button_border)
+            }
         }
         selectedButton = v as Button
         selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
+        selectedButton!!.setTextColor(Color.parseColor("#ffffff"))
+
     }
+
+
 
     private fun getData(){
 
@@ -374,6 +389,16 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 if (buttonMap[buttonId]?.text.toString().isNotEmpty()){
                     userInputBoard[i][j] = buttonMap[buttonId]?.text.toString().toInt()
                 }
+            }
+        }
+    }
+
+    private fun resetBoard(){
+        for (i in 0 until 9){
+            for (j in 0 until 9){
+                userInputBoard[i][j] = 0
+                buttonMap["b${i+1}${j+1}"]?.text = ""
+                buttonMap["b${i+1}${j+1}"]?.setBackgroundResource(R.drawable.button_border)
             }
         }
     }
