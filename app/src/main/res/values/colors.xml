@@ -6,5 +6,6 @@
     <color name="green">#4CAF50</color>
     <color name="red">#F44336</color>
     <color name="background">#000000</color>
-    <color name="textcolor">#141A46</color>
+    <color name="textcolor">#2a7dff</color>
+    <color name="buttonColor">#649cf8</color>
 </resources>

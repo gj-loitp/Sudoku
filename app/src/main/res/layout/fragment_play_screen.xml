@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="@color/colorPrimaryDark"
     tools:context=".PlayScreen">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:padding="10dp"
         android:text="@string/sudoku"
-        android:textColor="@android:color/white"
+        android:textColor="@color/textcolor"
         android:textSize="47sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,11 +27,11 @@
         android:layout_height="40dp"
         android:layout_marginLeft="3dp"
         android:text="@string/initial_timer"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/textcolor"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/sudokuMatrix"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.90"
+        app:layout_constraintHorizontal_bias="0.884"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0" />
@@ -908,6 +908,7 @@
         android:text="@string/reset"
         android:textSize="25sp"
         android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@id/inputButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -934,6 +935,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/clear" />
 
@@ -942,6 +944,7 @@
             android:layout_width="50dp"
             android:textStyle="bold"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/one" />
 
@@ -950,6 +953,7 @@
             android:textStyle="bold"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/two" />
 
@@ -958,6 +962,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/three" />
 
@@ -966,6 +971,7 @@
             android:layout_width="50dp"
             android:textStyle="bold"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/four" />
 
@@ -974,6 +980,7 @@
             android:layout_width="50dp"
             android:textStyle="bold"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/five" />
 
@@ -982,6 +989,7 @@
             android:layout_width="50dp"
             android:textStyle="bold"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/six" />
 
@@ -990,6 +998,7 @@
             android:layout_width="50dp"
             android:textStyle="bold"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/seven" />
 
@@ -998,6 +1007,7 @@
             android:layout_width="50dp"
             android:textStyle="bold"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/eight" />
 
@@ -1006,6 +1016,7 @@
             android:textStyle="bold"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/round_white_buttons"
             android:text="@string/nine" />
 

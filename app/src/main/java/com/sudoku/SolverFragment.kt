@@ -1,5 +1,7 @@
 package com.sudoku
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -305,6 +307,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
         when (v?.id){
             R.id.clear -> {
                 selectedButton?.text = ""
+                selectedButton!!.setTextColor(Color.parseColor("#000000"))
                 return
             }
             R.id.one -> {
@@ -363,11 +366,18 @@ class SolverFragment : Fragment(), View.OnClickListener {
             }
         }
         if (selectedButton != null){
-            if (selectedButton!!.text.toString().isEmpty() ) selectedButton!!.setBackgroundResource(R.drawable.button_border)
+            if (selectedButton!!.text.toString().isEmpty() ) {
+                selectedButton!!.setTextColor(Color.parseColor("#000000"))
+                selectedButton!!.setBackgroundResource(R.drawable.button_border)
+            }
         }
         selectedButton = v as Button
         selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
+        selectedButton!!.setTextColor(Color.parseColor("#ffffff"))
+
     }
+
+
 
     private fun getData(){
 
@@ -383,7 +393,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    fun resetBoard(){
+    private fun resetBoard(){
         for (i in 0 until 9){
             for (j in 0 until 9){
                 userInputBoard[i][j] = 0

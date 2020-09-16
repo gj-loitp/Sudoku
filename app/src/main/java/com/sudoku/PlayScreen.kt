@@ -1,6 +1,7 @@
 package com.sudoku
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.graphics.Typeface.BOLD
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -15,6 +16,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_play_screen.*
 import org.jetbrains.anko.find
+import java.util.*
+import kotlin.collections.HashMap
 
 class PlayScreen : Fragment(), View.OnClickListener {
     private var selectedButton: Button? = null
@@ -22,7 +25,8 @@ class PlayScreen : Fragment(), View.OnClickListener {
     private var matrix = Array(9) {IntArray(9) {0} }
     private var buttonMap = HashMap<String, Button>()
     private var reverseMap = HashMap<Button, String>()
-
+    private var timerVal:CountDownTimer? = null
+    private var initialSolveTime = 900000L
     private lateinit var difficultyLevel:String
 
     override fun onCreateView(
@@ -35,14 +39,15 @@ class PlayScreen : Fragment(), View.OnClickListener {
         Log.i("Solver","in play fragment")
 
         difficultyLevel = arguments?.getString("difficulty_text").toString()
-        var initialSolveTime  = 900000L
+        initialSolveTime  = 900000L
         if (difficultyLevel == "easy") initialSolveTime = 900000L
         else if (difficultyLevel == "medium") initialSolveTime = 600000L
         else  initialSolveTime = 300000L
 
-        object : CountDownTimer(initialSolveTime, 1000){
+        timerVal = object : CountDownTimer(initialSolveTime, 1000){
             @SuppressLint("SetTextI18n")
             override fun onTick(p0: Long) {
+                initialSolveTime = p0
                 var displayTimerText:String?
                 val minutes = (p0 / 1000 / 60).toInt()
                 displayTimerText = if (minutes / 10 == 0) "0$minutes:"
@@ -59,7 +64,8 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 // Time is up
             }
 
-        }.start()
+        }
+        (timerVal as CountDownTimer).start()
 
         val b11: Button = view.findViewById(R.id.b11)
         val b12: Button = view.findViewById(R.id.b12)
@@ -499,6 +505,11 @@ class PlayScreen : Fragment(), View.OnClickListener {
         return view
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        timerVal?.cancel()
+    }
+
     override fun onClick(v: View?) {
 
         if(v?.isClickable==false)
@@ -632,13 +643,63 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
         if (selectedButton != null){
             selectedButton!!.setBackgroundResource(R.drawable.button_border)
+            removeHighlight(selectedButton!!)
         }
         selectedButton = v as Button
+        highlight(selectedButton!!)
         selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
     }
 
-    fun resetBoard(){
+    private fun removeHighlight(button:Button){
 
+        if (selectedButton == null) return
+
+        var row = reverseMap[button]?.get(1)?.toString()?.toInt()
+        var col = reverseMap[button]?.get(2)?.toString()?.toInt()
+
+        for (i in 0 until 9){
+            if (row != null) {
+                if (buttonMap["b${row}${i + 1}"]?.text?.isEmpty()!!){
+                    buttonMap["b${row}${i + 1}"]?.setBackgroundResource(R.drawable.button_border)
+                }
+            }
+        }
+        for (i in 0 until 9){
+            if (col != null) {
+                if (buttonMap["b${i + 1}${col}"]?.text?.isEmpty()!!){
+                    buttonMap["b${i + 1}${col}"]?.setBackgroundResource(R.drawable.button_border)
+                }
+            }
+        }
+    }
+
+    private fun highlight(button:Button){
+
+        var row = reverseMap[button]?.get(1)?.toString()?.toInt()
+        var col = reverseMap[button]?.get(2)?.toString()?.toInt()
+
+        for (i in 0 until 9){
+            if (row != null) {
+                if (buttonMap["b${row}${i + 1}"]?.isClickable!!){
+                    buttonMap["b${row}${i + 1}"]?.setBackgroundResource(R.drawable.highlighted_button)
+                }
+            }
+        }
+        for (i in 0 until 9){
+            if (col != null) {
+                if (buttonMap["b${i + 1}${col}"]?.isClickable!!){
+                    buttonMap["b${i + 1}${col}"]?.setBackgroundResource(R.drawable.highlighted_button)
+                }
+            }
+        }
+    }
+
+
+    private fun resetBoard(){
+
+        removeHighlight(selectedButton!!)
+        selectedButton!!.setBackgroundResource(R.drawable.button_border)
+        selectedButton = null
         for (i in 0 until 9){
             for (j in 0 until 9){
                 if (buttonMap["b${i+1}${j+1}"]?.isClickable!!){
@@ -698,12 +759,13 @@ class PlayScreen : Fragment(), View.OnClickListener {
         for(i in 0..8)
             for(j in 0..8)
             matrix[i][j]=(matrix[i][j]+uplift)%9 + 1
-        for(count in 1..40) {
+        for(count in 1..35) {
             val i=(0..8).random()
             val j=(0..8).random()
             val key = "b${(i+1)}${(j+1)}"
             userInputBoard[i][j] = matrix[i][j]
             buttonMap[key]?.text = matrix[i][j].toString()
+            buttonMap[key]?.setTextColor(Color.parseColor("#ffffff"))
             buttonMap[key]?.setBackgroundResource(R.drawable.selected_button_border)
             buttonMap[key]?.setTypeface(null,BOLD)
             buttonMap[key]?.isClickable=false
