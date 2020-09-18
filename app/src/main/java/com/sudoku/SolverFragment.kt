@@ -16,6 +16,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
     private var selectedButton:Button? = null
     private var userInputBoard = Array(9) {IntArray(9) {0} }
     private var buttonMap = HashMap<String, Button>()
+    private var reverseMap = HashMap<Button, String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -189,6 +190,88 @@ class SolverFragment : Fragment(), View.OnClickListener {
         buttonMap["b98"] = b98
         buttonMap["b99"] = b99
 
+        reverseMap[b11]="b11"
+        reverseMap[b12]="b12"
+        reverseMap[b13]="b13"
+        reverseMap[b14]="b14"
+        reverseMap[b15]="b15"
+        reverseMap[b16]="b16"
+        reverseMap[b17]="b17"
+        reverseMap[b18]="b18"
+        reverseMap[b19]="b19"
+        reverseMap[b21]="b21"
+        reverseMap[b22]="b22"
+        reverseMap[b23]="b23"
+        reverseMap[b24]="b24"
+        reverseMap[b25]="b25"
+        reverseMap[b26]="b26"
+        reverseMap[b27]="b27"
+        reverseMap[b28]="b28"
+        reverseMap[b29]="b29"
+        reverseMap[b31]="b31"
+        reverseMap[b32]="b32"
+        reverseMap[b33]="b33"
+        reverseMap[b34]="b34"
+        reverseMap[b35]="b35"
+        reverseMap[b36]="b36"
+        reverseMap[b37]="b37"
+        reverseMap[b38]="b38"
+        reverseMap[b39]="b39"
+        reverseMap[b41]="b41"
+        reverseMap[b42]="b42"
+        reverseMap[b43]="b43"
+        reverseMap[b44]="b44"
+        reverseMap[b45]="b45"
+        reverseMap[b46]="b46"
+        reverseMap[b47]="b47"
+        reverseMap[b48]="b48"
+        reverseMap[b49]="b49"
+        reverseMap[b51]="b51"
+        reverseMap[b52]="b52"
+        reverseMap[b53]="b53"
+        reverseMap[b54]="b54"
+        reverseMap[b55]="b55"
+        reverseMap[b56]="b56"
+        reverseMap[b57]="b57"
+        reverseMap[b58]="b58"
+        reverseMap[b59]="b59"
+        reverseMap[b61]="b61"
+        reverseMap[b62]="b62"
+        reverseMap[b63]="b63"
+        reverseMap[b64]="b64"
+        reverseMap[b65]="b65"
+        reverseMap[b66]="b66"
+        reverseMap[b67]="b67"
+        reverseMap[b68]="b68"
+        reverseMap[b69]="b69"
+        reverseMap[b71]="b71"
+        reverseMap[b72]="b72"
+        reverseMap[b73]="b73"
+        reverseMap[b74]="b74"
+        reverseMap[b75]="b75"
+        reverseMap[b76]="b76"
+        reverseMap[b77]="b77"
+        reverseMap[b78]="b78"
+        reverseMap[b79]="b79"
+        reverseMap[b81]="b81"
+        reverseMap[b82]="b82"
+        reverseMap[b83]="b83"
+        reverseMap[b84]="b84"
+        reverseMap[b85]="b85"
+        reverseMap[b86]="b86"
+        reverseMap[b87]="b87"
+        reverseMap[b88]="b88"
+        reverseMap[b89]="b89"
+        reverseMap[b91]="b91"
+        reverseMap[b92]="b92"
+        reverseMap[b93]="b93"
+        reverseMap[b94]="b94"
+        reverseMap[b95]="b95"
+        reverseMap[b96]="b96"
+        reverseMap[b97]="b97"
+        reverseMap[b98]="b98"
+        reverseMap[b99]="b99"
+
         b11.setOnClickListener(this)
         b12.setOnClickListener(this)
         b13.setOnClickListener(this)
@@ -308,50 +391,108 @@ class SolverFragment : Fragment(), View.OnClickListener {
             R.id.clear -> {
                 selectedButton?.text = ""
                 selectedButton!!.setTextColor(Color.parseColor("#000000"))
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 0
+                }
                 return
             }
             R.id.one -> {
                 selectedButton?.text = "1"
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 1
+                }
                 return
             }
             R.id.two -> {
                 selectedButton?.text = "2"
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 2
+                }
                 return
             }
             R.id.three -> {
                 selectedButton?.text = "3"
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 3
+                }
                 return
             }
             R.id.four -> {
                 selectedButton?.text = "4"
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 4
+                }
                 return
             }
             R.id.five -> {
                 selectedButton?.text = "5"
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 5
+                }
                 return
             }
             R.id.six -> {
                 selectedButton?.text = "6"
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 6
+                }
                 return
             }
             R.id.seven -> {
                 selectedButton?.text = "7"
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 7
+                }
                 return
             }
             R.id.eight -> {
                 selectedButton?.text = "8"
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 8
+                }
                 return
             }
             R.id.nine -> {
                 selectedButton?.text = "9"
+                val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (col != null && row != null) {
+                    userInputBoard[row - 1][col - 1] = 9
+                }
                 return
             }
             R.id.solveButton -> {
-                if(selectedButton != null)
-                if (selectedButton?.text?.isEmpty()!!)
-                    selectedButton!!.setBackgroundResource(R.drawable.button_border)
+                if(selectedButton != null) {
+                    if (selectedButton?.text?.isEmpty()!!)
+                    {
+                        removeHighlight(selectedButton!!)
+                        selectedButton!!.setTextColor(Color.parseColor("#000000"))
+                        selectedButton!!.setBackgroundResource(R.drawable.button_border)
+                    }
+                    else {
+                        removeHighlight(selectedButton!!)
+                        selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
+                    }
+                }
                 Log.i("solver","solve button clicked")
-                getData()
                 if (solve()) {
                     showResult()
                 } else {
@@ -369,25 +510,56 @@ class SolverFragment : Fragment(), View.OnClickListener {
             if (selectedButton!!.text.toString().isEmpty() ) {
                 selectedButton!!.setTextColor(Color.parseColor("#000000"))
                 selectedButton!!.setBackgroundResource(R.drawable.button_border)
+                removeHighlight(selectedButton!!)
             }
         }
+        if (selectedButton != null) removeHighlight(selectedButton!!)
         selectedButton = v as Button
+        highlight(selectedButton!!)
         selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
         selectedButton!!.setTextColor(Color.parseColor("#ffffff"))
 
     }
 
+    private fun removeHighlight(button: Button){
 
+        if (selectedButton == null) return
 
-    private fun getData(){
+        val row = reverseMap[button]?.get(1)?.toString()?.toInt()
+        val col = reverseMap[button]?.get(2)?.toString()?.toInt()
 
-        var buttonId = "b00"
         for (i in 0 until 9){
-            buttonId = "b" + (i+1).toString() + buttonId[2].toString()
-            for (j in 0 until 9){
-                buttonId = buttonId.substring(0, 2) + (j+1).toString()
-                if (buttonMap[buttonId]?.text.toString().isNotEmpty()){
-                    userInputBoard[i][j] = buttonMap[buttonId]?.text.toString().toInt()
+            if (row != null) {
+                if (userInputBoard[row - 1][i] == 0){
+                    buttonMap["b${row}${i + 1}"]?.setBackgroundResource(R.drawable.button_border)
+                }
+            }
+        }
+        for (i in 0 until 9){
+            if (col != null) {
+                if (userInputBoard[i][col - 1] == 0){
+                    buttonMap["b${i + 1}${col}"]?.setBackgroundResource(R.drawable.button_border)
+                }
+            }
+        }
+    }
+
+    private fun highlight(button: Button){
+
+        val row = reverseMap[button]?.get(1)?.toString()?.toInt()
+        val col = reverseMap[button]?.get(2)?.toString()?.toInt()
+
+        for (i in 0 until 9){
+            if (row != null) {
+                if (userInputBoard[row - 1][i] == 0){
+                    buttonMap["b${row}${i + 1}"]?.setBackgroundResource(R.drawable.highlighted_button)
+                }
+            }
+        }
+        for (i in 0 until 9){
+            if (col != null) {
+                if (userInputBoard[i][col - 1] == 0){
+                    buttonMap["b${i + 1}${col}"]?.setBackgroundResource(R.drawable.highlighted_button)
                 }
             }
         }
@@ -398,6 +570,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
             for (j in 0 until 9){
                 userInputBoard[i][j] = 0
                 buttonMap["b${i+1}${j+1}"]?.text = ""
+                buttonMap["b${i+1}${j+1}"]?.setTextColor(Color.parseColor("#000000"))
                 buttonMap["b${i+1}${j+1}"]?.setBackgroundResource(R.drawable.button_border)
             }
         }
