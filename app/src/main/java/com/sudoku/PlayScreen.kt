@@ -12,12 +12,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_play_screen.*
-import org.jetbrains.anko.find
-import java.util.*
-import kotlin.collections.HashMap
+
 
 class PlayScreen : Fragment(), View.OnClickListener {
     private var selectedButton: Button? = null
@@ -36,7 +32,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
         val view:View = inflater.inflate(R.layout.fragment_play_screen, container, false)
 
-        Log.i("Solver","in play fragment")
+        Log.i("Solver", "in play fragment")
 
         difficultyLevel = arguments?.getString("difficulty_text").toString()
         initialSolveTime  = 900000L
@@ -52,20 +48,25 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 val minutes = (p0 / 1000 / 60).toInt()
                 displayTimerText = if (minutes / 10 == 0) "0$minutes:"
                 else "$minutes:"
-
                 val seconds = (p0 / 1000).toInt() % 60
                 displayTimerText += if (seconds / 10 == 0) "0$seconds"
                 else "$seconds"
-
                 timer.text = displayTimerText
             }
-
             override fun onFinish() {
                 // Time is up
+                Toast.makeText(context,"You ran out of time!!\nHere is the solution!", Toast.LENGTH_LONG).show()
+                if (selectedButton != null){
+                    selectedButton!!.setBackgroundResource(R.drawable.button_border)
+                    removeHighlight(selectedButton!!)
+                }
+                setBoard()
             }
-
         }
         (timerVal as CountDownTimer).start()
+
+        requireActivity().onBackPressed()
+        requireActivity().onBackPressed()
 
         val b11: Button = view.findViewById(R.id.b11)
         val b12: Button = view.findViewById(R.id.b12)
@@ -514,26 +515,38 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
         if(v?.isClickable==false)
             return
+        if(resetButton.text.toString()=="BACK" && v?.id != resetButton.id){
+            return
+        }
         when (v?.id){
             R.id.clear -> {
                 selectedButton?.text = ""
-                if(selectedButton!=null){
-                    Log.i("index","${selectedButton!!.id} ${reverseMap[selectedButton]?.get(1)?.toString()?.toInt()} ${reverseMap[selectedButton]?.get(2)?.toString()?.toInt()} ")
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    Log.i(
+                        "index",
+                        "${selectedButton!!.id} ${
+                            reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                        } ${
+                            reverseMap[selectedButton]?.get(
+                                2
+                            )?.toString()?.toInt()
+                        } "
+                    )
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=0
+                        userInputBoard[row - 1][col - 1] = 0
                     }
                 }
                 return
             }
             R.id.one -> {
                 selectedButton?.text = "1"
-                if(selectedButton!=null){
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=1
+                        userInputBoard[row - 1][col - 1] = 1
                     }
                 }
                 check()
@@ -541,11 +554,11 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
             R.id.two -> {
                 selectedButton?.text = "2"
-                if(selectedButton!=null){
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=2
+                        userInputBoard[row - 1][col - 1] = 2
                     }
                 }
                 check()
@@ -553,11 +566,11 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
             R.id.three -> {
                 selectedButton?.text = "3"
-                if(selectedButton!=null){
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=3
+                        userInputBoard[row - 1][col - 1] = 3
                     }
                 }
                 check()
@@ -565,11 +578,11 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
             R.id.four -> {
                 selectedButton?.text = "4"
-                if(selectedButton!=null){
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=4
+                        userInputBoard[row - 1][col - 1] = 4
                     }
                 }
                 check()
@@ -577,11 +590,11 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
             R.id.five -> {
                 selectedButton?.text = "5"
-                if(selectedButton!=null){
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=5
+                        userInputBoard[row - 1][col - 1] = 5
                     }
                 }
                 check()
@@ -589,11 +602,11 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
             R.id.six -> {
                 selectedButton?.text = "6"
-                if(selectedButton!=null){
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=6
+                        userInputBoard[row - 1][col - 1] = 6
                     }
                 }
                 check()
@@ -601,11 +614,11 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
             R.id.seven -> {
                 selectedButton?.text = "7"
-                if(selectedButton!=null){
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=7
+                        userInputBoard[row - 1][col - 1] = 7
                     }
                 }
                 check()
@@ -613,11 +626,11 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
             R.id.eight -> {
                 selectedButton?.text = "8"
-                if(selectedButton!=null){
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=8
+                        userInputBoard[row - 1][col - 1] = 8
                     }
                 }
                 check()
@@ -625,17 +638,23 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
             R.id.nine -> {
                 selectedButton?.text = "9"
-                if(selectedButton!=null){
-                    val row= reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                    val col= reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
+                if (selectedButton != null) {
+                    val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+                    val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
-                        userInputBoard[row-1][col-1]=9
+                        userInputBoard[row - 1][col - 1] = 9
                     }
                 }
                 check()
                 return
             }
             R.id.resetButton -> {
+                if (resetButton.text.toString() == "BACK") {
+                    Log.i("navigate", "navigating")
+                    timerVal!!.cancel()
+                    requireActivity().onBackPressed()
+                    return
+                }
                 resetBoard()
                 return
             }
@@ -650,12 +669,12 @@ class PlayScreen : Fragment(), View.OnClickListener {
         selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
     }
 
-    private fun removeHighlight(button:Button){
+    private fun removeHighlight(button: Button){
 
         if (selectedButton == null) return
 
-        var row = reverseMap[button]?.get(1)?.toString()?.toInt()
-        var col = reverseMap[button]?.get(2)?.toString()?.toInt()
+        val row = reverseMap[button]?.get(1)?.toString()?.toInt()
+        val col = reverseMap[button]?.get(2)?.toString()?.toInt()
 
         for (i in 0 until 9){
             if (row != null) {
@@ -673,10 +692,10 @@ class PlayScreen : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun highlight(button:Button){
+    private fun highlight(button: Button){
 
-        var row = reverseMap[button]?.get(1)?.toString()?.toInt()
-        var col = reverseMap[button]?.get(2)?.toString()?.toInt()
+        val row = reverseMap[button]?.get(1)?.toString()?.toInt()
+        val col = reverseMap[button]?.get(2)?.toString()?.toInt()
 
         for (i in 0 until 9){
             if (row != null) {
@@ -702,8 +721,8 @@ class PlayScreen : Fragment(), View.OnClickListener {
         selectedButton = null
         for (i in 0 until 9){
             for (j in 0 until 9){
-                if (buttonMap["b${i+1}${j+1}"]?.isClickable!!){
-                    buttonMap["b${i+1}${j+1}"]?.text = ""
+                if (buttonMap["b${i + 1}${j + 1}"]?.isClickable!!){
+                    buttonMap["b${i + 1}${j + 1}"]?.text = ""
                     userInputBoard[i][j] = 0
                 }
             }
@@ -717,19 +736,19 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
                 if(userInputBoard[i][j]==0)
                 {
-                    Log.i("check","er 1")
+                    Log.i("check", "er 1")
                     return
                 }
 
                 for(k in 0..8){
                     if(userInputBoard[i][j]==userInputBoard[i][k] && j!=k)
                     {
-                        Log.i("check","er 2 $i $j $k ${userInputBoard[i][j]}")
+                        Log.i("check", "er 2 $i $j $k ${userInputBoard[i][j]}")
                         return
                     }
                     if(userInputBoard[i][j]==userInputBoard[k][j] && i!=k)
                     {
-                        Log.i("check","er 3 $i $j $k ${userInputBoard[i][j]}")
+                        Log.i("check", "er 3 $i $j $k ${userInputBoard[i][j]}")
                         return
                     }
                 }
@@ -744,13 +763,14 @@ class PlayScreen : Fragment(), View.OnClickListener {
                             for (y in 0..2) {
                                 if (userInputBoard[i + r][j + c] == userInputBoard[x + r][y + c] && (x != i || y != j))
                                 {
-                                    Log.i("check","er here")
+                                    Log.i("check", "er here")
                                     return
                                 }
                             }
                     }
             }
-        Toast.makeText(activity,"GREAT JOB!! YOU SOLVED IT!!",Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, "GREAT JOB!! YOU SOLVED IT!!", Toast.LENGTH_LONG).show()
+        timerVal!!.cancel()
     }
 
     private fun generatematrix(){
@@ -759,7 +779,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
         for(i in 0..8)
             for(j in 0..8)
             matrix[i][j]=(matrix[i][j]+uplift)%9 + 1
-        for(count in 1..35) {
+        for(count in 1..38) {
             val i=(0..8).random()
             val j=(0..8).random()
             val key = "b${(i+1)}${(j+1)}"
@@ -767,13 +787,13 @@ class PlayScreen : Fragment(), View.OnClickListener {
             buttonMap[key]?.text = matrix[i][j].toString()
             buttonMap[key]?.setTextColor(Color.parseColor("#ffffff"))
             buttonMap[key]?.setBackgroundResource(R.drawable.selected_button_border)
-            buttonMap[key]?.setTypeface(null,BOLD)
+            buttonMap[key]?.setTypeface(null, BOLD)
             buttonMap[key]?.isClickable=false
         }
     }
 
 
-    private fun isSafe(row:Int, col:Int, num:Int):Boolean{
+    private fun isSafe(row: Int, col: Int, num: Int):Boolean{
 
         for (d in 0 until 9){
             if(d==col)
@@ -805,7 +825,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
         return true
     }
 
-    private fun solveSudoku(N:Int):Boolean{
+    private fun solveSudoku(N: Int):Boolean{
         var row = -1
         var col = -1
         var isEmpty = true
@@ -837,5 +857,15 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
         }
         return false
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setBoard(){
+        for(i in 0..8)
+            for (j in 0..8){
+                buttonMap["b${i + 1}${j + 1}"]?.text = "${matrix[i][j]}"
+            }
+        resetButton.text = "BACK"
+        timer.text = "00:00"
     }
 }

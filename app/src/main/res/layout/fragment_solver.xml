@@ -884,11 +884,11 @@
 
 
     <Button
+        app:layout_constraintTop_toBottomOf="@id/sudokuMatrix"
+        android:layout_marginTop="6dp"
         android:id="@+id/solveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="4dp"
         android:background="@drawable/round_white_buttons"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
@@ -896,16 +896,17 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/inputButtons"
+        app:layout_constraintEnd_toStartOf="@+id/resetButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sudokuMatrix"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteY="458dp" />
 
     <Button
+        app:layout_constraintTop_toBottomOf="@id/sudokuMatrix"
         android:id="@+id/resetButton"
+        android:layout_marginTop="6dp"
         android:layout_width="139dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:background="@drawable/round_white_buttons"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
@@ -913,12 +914,10 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/inputButtons"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/solveButton"
-        app:layout_constraintTop_toBottomOf="@id/sudokuMatrix"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteY="458dp" />
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/inputButtons"
@@ -932,7 +931,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sudokuMatrix">
+        app:layout_constraintTop_toBottomOf="@+id/solveButton">
 
         <Button
             android:id="@+id/clear"
