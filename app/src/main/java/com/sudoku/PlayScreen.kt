@@ -651,7 +651,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
             R.id.resetButton -> {
                 if (resetButton.text.toString() == "BACK") {
                     Log.i("navigate", "navigating")
-                    timerVal!!.cancel()
+                    timerVal?.cancel()
                     requireActivity().onBackPressed()
                     return
                 }
@@ -730,6 +730,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun check() {
         for(i in 0..8)
             for(j in 0..8){
@@ -771,6 +772,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
         Toast.makeText(activity, "GREAT JOB!! YOU SOLVED IT!!", Toast.LENGTH_LONG).show()
         timerVal!!.cancel()
+        resetButton.text = "BACK"
     }
 
     private fun generatematrix(){
