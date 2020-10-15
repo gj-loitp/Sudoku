@@ -21,8 +21,9 @@
 
 <br>
 #### Want to improve it ✨? Feel free to contribute💥💥
-<br>
-##### _Built with _	❤️ _by Developer Student Clubs JSS_
 
+<br>
+##### Built with 	❤️ by Developer Student Clubs JSS
+<br>
 
 ![](https://camo.githubusercontent.com/d24f2f8414437a9491ea3145cafd373167315d50/68747470733a2f2f666f7274686562616467652e636f6d2f696d616765732f6261646765732f6275696c742d776974682d6c6f76652e737667) ![](https://camo.githubusercontent.com/e82fcde6b4952d69611ae4cf507b13fe6ae8e028/68747470733a2f2f666f7274686562616467652e636f6d2f696d616765732f6261646765732f6275696c742d666f722d616e64726f69642e737667)
