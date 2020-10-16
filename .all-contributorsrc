@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "dhruv-1001",
+      "name": "Dhruv Baliyan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/55213645?v=4",
+      "profile": "https://github.com/dhruv-1001",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Sudoku",
+  "projectOwner": "nakul-19",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
