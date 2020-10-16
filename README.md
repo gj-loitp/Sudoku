@@ -39,9 +39,27 @@
 
 ###### Need help? Feel free to contact us @ [dscjssnoida@gmail.com](mailto:dscjssnoida@gmail.com) 
 ## Connect with us
-<p align="center">
-
-[![Foo](https://user-images.githubusercontent.com/42115530/94302134-5c28c680-ff89-11ea-9ca4-5dcdd4279786.png)](https://dscjss.in)
-
-[![Foo](https://camo.githubusercontent.com/d26e68cb08e15de45845ac7b137f1e66abc8abf9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769746875622d2532333234323932652e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465)](https://github.com/DSC-JSS-NOIDA) [![Foo](https://camo.githubusercontent.com/f3f6e7dca27cd695a09fb065a6ea32ee1a513348/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f747769747465722d2532333030616365652e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d74776974746572266c6f676f436f6c6f723d7768697465)](https://twitter.com/DSCJSSATEN) [![Foo](https://camo.githubusercontent.com/8e11e5c18a2a4e96021bc660bc102859c37f17d5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c696e6b6564696e2d2532333145373742352e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d6c696e6b6564696e266c6f676f436f6c6f723d7768697465)](https://www.linkedin.com/company/dsc-jssaten/) [![Foo](https://camo.githubusercontent.com/18b5f7099779a5859eccd42b06a276fab08da902/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f66616365626f6f6b2d2532333245383746422e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d66616365626f6f6b266c6f676f436f6c6f723d7768697465)](https://www.facebook.com/dscjssnoida/)  [![Foo](https://camo.githubusercontent.com/d3588d38461dce49e73d5da4f925ea0bd9f1ffdc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f696e7374616772616d2d2532333030303030302e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d696e7374616772616d266c6f676f436f6c6f723d7768697465)](https://www.instagram.com/dscjssaten/?igshid=9ubqtp1ssqsi)  [![Foo](https://camo.githubusercontent.com/b8addc1dce1c86e28e73307adf44e319c3607d69/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6d656469756d2d2532333239323932392e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d6d656469756d266c6f676f436f6c6f723d7768697465)](https://medium.com/dsc-jss-noida) [![Foo](https://camo.githubusercontent.com/8cad792fab65d42691126c551f6b7a17c0cd50e3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f796f75747562652d2532334646303030302e7376673f267374796c653d666f722d7468652d6261646765266c6f676f3d796f7574756265266c6f676f436f6c6f723d7768697465)](https://www.youtube.com/channel/UCkELk5JFDceaSf8pBa19kDQ) 
-</p>
+<div align="center">
+ <a href="https://dscjss.in/"><img src="https://user-images.githubusercontent.com/42115530/94302134-5c28c680-ff89-11ea-9ca4-5dcdd4279786.png"  height=100px /></a> <br><br> 
+<a href="https://github.com/DSC-JSS-NOIDA" target="_blank">
+<img src=https://img.shields.io/badge/github-%2324292e.svg?&style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
+</a>
+<a href="https://twitter.com/DSCJSSATEN" target="_blank">
+<img src=https://img.shields.io/badge/twitter-%2300acee.svg?&style=for-the-badge&logo=twitter&logoColor=white alt=twitter style="margin-bottom: 5px;" />
+</a>
+<a href="https://www.linkedin.com/company/dsc-jssaten/" target="_blank">
+<img src=https://img.shields.io/badge/linkedin-%231E77B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
+</a>
+<a href="https://www.facebook.com/dscjssnoida/" target="_blank">
+<img src=https://img.shields.io/badge/facebook-%232E87FB.svg?&style=for-the-badge&logo=facebook&logoColor=white alt=facebook style="margin-bottom: 5px;" />
+</a>
+<a href="https://www.instagram.com/dscjssaten/?igshid=9ubqtp1ssqsi" target="_blank">
+<img src=https://img.shields.io/badge/instagram-%23000000.svg?&style=for-the-badge&logo=instagram&logoColor=white alt=instagram style="margin-bottom: 5px;" />
+</a>
+<a href="https://medium.com/dsc-jss-noida" target="_blank">
+<img src=https://img.shields.io/badge/medium-%23292929.svg?&style=for-the-badge&logo=medium&logoColor=white alt=medium style="margin-bottom: 5px;" />
+</a>  
+<a href="https://www.youtube.com/channel/UCkELk5JFDceaSf8pBa19kDQ" target="_blank">
+<img src=https://img.shields.io/badge/youtube-%23FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white alt=youtube style="margin-bottom: 5px;" />
+</a> 
+</div> 
