@@ -16,23 +16,23 @@ class DifficultyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view:View =  inflater.inflate(R.layout.fragment_difficulty, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_difficulty, container, false)
 
-        val easyButton:Button = view.findViewById(R.id.easybutton)
-        val mediumButton:Button = view.findViewById(R.id.mediumbutton)
-        val hardButton:Button = view.findViewById(R.id.hardbutton)
+        val easyButton: Button = view.findViewById(R.id.easybutton)
+        val mediumButton: Button = view.findViewById(R.id.mediumbutton)
+        val hardButton: Button = view.findViewById(R.id.hardbutton)
 
         comm = activity as Communicator
 
-        easyButton.setOnClickListener(){
+        easyButton.setOnClickListener {
             comm.passDataCom("easy")
             view.findNavController().navigate(R.id.action_difficultyFragment_to_playScreen)
         }
-        mediumButton.setOnClickListener(){
+        mediumButton.setOnClickListener {
             comm.passDataCom("medium")
             view.findNavController().navigate(R.id.action_difficultyFragment_to_playScreen)
         }
-        hardButton.setOnClickListener(){
+        hardButton.setOnClickListener {
             comm.passDataCom("hard")
             view.findNavController().navigate(R.id.action_difficultyFragment_to_playScreen)
         }
