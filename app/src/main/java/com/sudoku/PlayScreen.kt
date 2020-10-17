@@ -17,34 +17,34 @@ import kotlinx.android.synthetic.main.fragment_play_screen.*
 
 class PlayScreen : Fragment(), View.OnClickListener {
     private var selectedButton: Button? = null
-    private var userInputBoard = Array(9) {IntArray(9) {0} }
-    private var matrix = Array(9) {IntArray(9) {0} }
+    private var userInputBoard = Array(9) { IntArray(9) { 0 } }
+    private var matrix = Array(9) { IntArray(9) { 0 } }
     private var buttonMap = HashMap<String, Button>()
     private var reverseMap = HashMap<Button, String>()
-    private var timerVal:CountDownTimer? = null
+    private var timerVal: CountDownTimer? = null
     private var initialSolveTime = 900000L
-    private lateinit var difficultyLevel:String
+    private lateinit var difficultyLevel: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val view:View = inflater.inflate(R.layout.fragment_play_screen, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_play_screen, container, false)
 
         Log.i("Solver", "in play fragment")
 
         difficultyLevel = arguments?.getString("difficulty_text").toString()
-        initialSolveTime  = 900000L
+        initialSolveTime = 900000L
         if (difficultyLevel == "easy") initialSolveTime = 900000L
         else if (difficultyLevel == "medium") initialSolveTime = 600000L
-        else  initialSolveTime = 300000L
+        else initialSolveTime = 300000L
 
-        timerVal = object : CountDownTimer(initialSolveTime, 1000){
+        timerVal = object : CountDownTimer(initialSolveTime, 1000) {
             @SuppressLint("SetTextI18n")
             override fun onTick(p0: Long) {
                 initialSolveTime = p0
-                var displayTimerText:String?
+                var displayTimerText: String?
                 val minutes = (p0 / 1000 / 60).toInt()
                 displayTimerText = if (minutes / 10 == 0) "0$minutes:"
                 else "$minutes:"
@@ -53,10 +53,15 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 else "$seconds"
                 timer.text = displayTimerText
             }
+
             override fun onFinish() {
                 // Time is up
-                Toast.makeText(context,"You ran out of time!!\nHere is the solution!", Toast.LENGTH_LONG).show()
-                if (selectedButton != null){
+                Toast.makeText(
+                    context,
+                    "You ran out of time!!\nHere is the solution!",
+                    Toast.LENGTH_LONG
+                ).show()
+                if (selectedButton != null) {
                     selectedButton!!.setBackgroundResource(R.drawable.button_border)
                     removeHighlight(selectedButton!!)
                 }
@@ -232,251 +237,251 @@ class PlayScreen : Fragment(), View.OnClickListener {
         buttonMap["b98"] = b98
         buttonMap["b99"] = b99
 
-        reverseMap[b11]="b11"
-        reverseMap[b12]="b12"
-        reverseMap[b13]="b13"
-        reverseMap[b14]="b14"
-        reverseMap[b15]="b15"
-        reverseMap[b16]="b16"
-        reverseMap[b17]="b17"
-        reverseMap[b18]="b18"
-        reverseMap[b19]="b19"
-        reverseMap[b21]="b21"
-        reverseMap[b22]="b22"
-        reverseMap[b23]="b23"
-        reverseMap[b24]="b24"
-        reverseMap[b25]="b25"
-        reverseMap[b26]="b26"
-        reverseMap[b27]="b27"
-        reverseMap[b28]="b28"
-        reverseMap[b29]="b29"
-        reverseMap[b31]="b31"
-        reverseMap[b32]="b32"
-        reverseMap[b33]="b33"
-        reverseMap[b34]="b34"
-        reverseMap[b35]="b35"
-        reverseMap[b36]="b36"
-        reverseMap[b37]="b37"
-        reverseMap[b38]="b38"
-        reverseMap[b39]="b39"
-        reverseMap[b41]="b41"
-        reverseMap[b42]="b42"
-        reverseMap[b43]="b43"
-        reverseMap[b44]="b44"
-        reverseMap[b45]="b45"
-        reverseMap[b46]="b46"
-        reverseMap[b47]="b47"
-        reverseMap[b48]="b48"
-        reverseMap[b49]="b49"
-        reverseMap[b51]="b51"
-        reverseMap[b52]="b52"
-        reverseMap[b53]="b53"
-        reverseMap[b54]="b54"
-        reverseMap[b55]="b55"
-        reverseMap[b56]="b56"
-        reverseMap[b57]="b57"
-        reverseMap[b58]="b58"
-        reverseMap[b59]="b59"
-        reverseMap[b61]="b61"
-        reverseMap[b62]="b62"
-        reverseMap[b63]="b63"
-        reverseMap[b64]="b64"
-        reverseMap[b65]="b65"
-        reverseMap[b66]="b66"
-        reverseMap[b67]="b67"
-        reverseMap[b68]="b68"
-        reverseMap[b69]="b69"
-        reverseMap[b71]="b71"
-        reverseMap[b72]="b72"
-        reverseMap[b73]="b73"
-        reverseMap[b74]="b74"
-        reverseMap[b75]="b75"
-        reverseMap[b76]="b76"
-        reverseMap[b77]="b77"
-        reverseMap[b78]="b78"
-        reverseMap[b79]="b79"
-        reverseMap[b81]="b81"
-        reverseMap[b82]="b82"
-        reverseMap[b83]="b83"
-        reverseMap[b84]="b84"
-        reverseMap[b85]="b85"
-        reverseMap[b86]="b86"
-        reverseMap[b87]="b87"
-        reverseMap[b88]="b88"
-        reverseMap[b89]="b89"
-        reverseMap[b91]="b91"
-        reverseMap[b92]="b92"
-        reverseMap[b93]="b93"
-        reverseMap[b94]="b94"
-        reverseMap[b95]="b95"
-        reverseMap[b96]="b96"
-        reverseMap[b97]="b97"
-        reverseMap[b98]="b98"
-        reverseMap[b99]="b99"
+        reverseMap[b11] = "b11"
+        reverseMap[b12] = "b12"
+        reverseMap[b13] = "b13"
+        reverseMap[b14] = "b14"
+        reverseMap[b15] = "b15"
+        reverseMap[b16] = "b16"
+        reverseMap[b17] = "b17"
+        reverseMap[b18] = "b18"
+        reverseMap[b19] = "b19"
+        reverseMap[b21] = "b21"
+        reverseMap[b22] = "b22"
+        reverseMap[b23] = "b23"
+        reverseMap[b24] = "b24"
+        reverseMap[b25] = "b25"
+        reverseMap[b26] = "b26"
+        reverseMap[b27] = "b27"
+        reverseMap[b28] = "b28"
+        reverseMap[b29] = "b29"
+        reverseMap[b31] = "b31"
+        reverseMap[b32] = "b32"
+        reverseMap[b33] = "b33"
+        reverseMap[b34] = "b34"
+        reverseMap[b35] = "b35"
+        reverseMap[b36] = "b36"
+        reverseMap[b37] = "b37"
+        reverseMap[b38] = "b38"
+        reverseMap[b39] = "b39"
+        reverseMap[b41] = "b41"
+        reverseMap[b42] = "b42"
+        reverseMap[b43] = "b43"
+        reverseMap[b44] = "b44"
+        reverseMap[b45] = "b45"
+        reverseMap[b46] = "b46"
+        reverseMap[b47] = "b47"
+        reverseMap[b48] = "b48"
+        reverseMap[b49] = "b49"
+        reverseMap[b51] = "b51"
+        reverseMap[b52] = "b52"
+        reverseMap[b53] = "b53"
+        reverseMap[b54] = "b54"
+        reverseMap[b55] = "b55"
+        reverseMap[b56] = "b56"
+        reverseMap[b57] = "b57"
+        reverseMap[b58] = "b58"
+        reverseMap[b59] = "b59"
+        reverseMap[b61] = "b61"
+        reverseMap[b62] = "b62"
+        reverseMap[b63] = "b63"
+        reverseMap[b64] = "b64"
+        reverseMap[b65] = "b65"
+        reverseMap[b66] = "b66"
+        reverseMap[b67] = "b67"
+        reverseMap[b68] = "b68"
+        reverseMap[b69] = "b69"
+        reverseMap[b71] = "b71"
+        reverseMap[b72] = "b72"
+        reverseMap[b73] = "b73"
+        reverseMap[b74] = "b74"
+        reverseMap[b75] = "b75"
+        reverseMap[b76] = "b76"
+        reverseMap[b77] = "b77"
+        reverseMap[b78] = "b78"
+        reverseMap[b79] = "b79"
+        reverseMap[b81] = "b81"
+        reverseMap[b82] = "b82"
+        reverseMap[b83] = "b83"
+        reverseMap[b84] = "b84"
+        reverseMap[b85] = "b85"
+        reverseMap[b86] = "b86"
+        reverseMap[b87] = "b87"
+        reverseMap[b88] = "b88"
+        reverseMap[b89] = "b89"
+        reverseMap[b91] = "b91"
+        reverseMap[b92] = "b92"
+        reverseMap[b93] = "b93"
+        reverseMap[b94] = "b94"
+        reverseMap[b95] = "b95"
+        reverseMap[b96] = "b96"
+        reverseMap[b97] = "b97"
+        reverseMap[b98] = "b98"
+        reverseMap[b99] = "b99"
 
         generatematrix()
-        if(b11.isClickable)
-        b11.setOnClickListener(this)
-        if(b12.isClickable)
-        b12.setOnClickListener(this)
-        if(b13.isClickable)
-        b13.setOnClickListener(this)
-        if(b14.isClickable)
-        b14.setOnClickListener(this)
-        if(b15.isClickable)
-        b15.setOnClickListener(this)
-        if(b16.isClickable)
-        b16.setOnClickListener(this)
-        if(b17.isClickable)
-        b17.setOnClickListener(this)
-        if(b18.isClickable)
-        b18.setOnClickListener(this)
-        if(b19.isClickable)
-        b19.setOnClickListener(this)
-        if(b21.isClickable)
-        b21.setOnClickListener(this)
-        if(b22.isClickable)
-        b22.setOnClickListener(this)
-        if(b23.isClickable)
-        b23.setOnClickListener(this)
-        if(b24.isClickable)
-        b24.setOnClickListener(this)
-        if(b25.isClickable)
-        b25.setOnClickListener(this)
-        if(b26.isClickable)
-        b26.setOnClickListener(this)
-        if(b27.isClickable)
-        b27.setOnClickListener(this)
-        if(b28.isClickable)
-        b28.setOnClickListener(this)
-        if(b29.isClickable)
-        b29.setOnClickListener(this)
-        if(b31.isClickable)
-        b31.setOnClickListener(this)
-        if(b32.isClickable)
-        b32.setOnClickListener(this)
-        if(b33.isClickable)
-        b33.setOnClickListener(this)
-        if(b34.isClickable)
-        b34.setOnClickListener(this)
-        if(b35.isClickable)
-        b35.setOnClickListener(this)
-        if(b36.isClickable)
-        b36.setOnClickListener(this)
-        if(b37.isClickable)
-        b37.setOnClickListener(this)
-        if(b38.isClickable)
-        b38.setOnClickListener(this)
-        if(b39.isClickable)
-        b39.setOnClickListener(this)
-        if(b41.isClickable)
-        b41.setOnClickListener(this)
-        if(b42.isClickable)
-        b42.setOnClickListener(this)
-        if(b43.isClickable)
-        b43.setOnClickListener(this)
-        if(b44.isClickable)
-        b44.setOnClickListener(this)
-        if(b45.isClickable)
-        b45.setOnClickListener(this)
-        if(b46.isClickable)
-        b46.setOnClickListener(this)
-        if(b47.isClickable)
-        b47.setOnClickListener(this)
-        if(b48.isClickable)
-        b48.setOnClickListener(this)
-        if(b49.isClickable)
-        b49.setOnClickListener(this)
-        if(b51.isClickable)
-        b51.setOnClickListener(this)
-        if(b52.isClickable)
-        b52.setOnClickListener(this)
-        if(b53.isClickable)
-        b53.setOnClickListener(this)
-        if(b54.isClickable)
-        b54.setOnClickListener(this)
-        if(b55.isClickable)
-        b55.setOnClickListener(this)
-        if(b56.isClickable)
-        b56.setOnClickListener(this)
-        if(b57.isClickable)
-        b57.setOnClickListener(this)
-        if(b58.isClickable)
-        b58.setOnClickListener(this)
-        if(b59.isClickable)
-        b59.setOnClickListener(this)
-        if(b61.isClickable)
-        b61.setOnClickListener(this)
-        if(b62.isClickable)
-        b62.setOnClickListener(this)
-        if(b63.isClickable)
-        b63.setOnClickListener(this)
-        if(b64.isClickable)
-        b64.setOnClickListener(this)
-        if(b65.isClickable)
-        b65.setOnClickListener(this)
-        if(b66.isClickable)
-        b66.setOnClickListener(this)
-        if(b67.isClickable)
-        b67.setOnClickListener(this)
-        if(b68.isClickable)
-        b68.setOnClickListener(this)
-        if(b69.isClickable)
-        b69.setOnClickListener(this)
-        if(b71.isClickable)
-        b71.setOnClickListener(this)
-        if(b72.isClickable)
-        b72.setOnClickListener(this)
-        if(b73.isClickable)
-        b73.setOnClickListener(this)
-        if(b74.isClickable)
-        b74.setOnClickListener(this)
-        if(b75.isClickable)
-        b75.setOnClickListener(this)
-        if(b76.isClickable)
-        b76.setOnClickListener(this)
-        if(b77.isClickable)
-        b77.setOnClickListener(this)
-        if(b78.isClickable)
-        b78.setOnClickListener(this)
-        if(b79.isClickable)
-        b79.setOnClickListener(this)
-        if(b81.isClickable)
-        b81.setOnClickListener(this)
-        if(b82.isClickable)
-        b82.setOnClickListener(this)
-        if(b83.isClickable)
-        b83.setOnClickListener(this)
-        if(b84.isClickable)
-        b84.setOnClickListener(this)
-        if(b85.isClickable)
-        b85.setOnClickListener(this)
-        if(b86.isClickable)
-        b86.setOnClickListener(this)
-        if(b87.isClickable)
-        b87.setOnClickListener(this)
-        if(b88.isClickable)
-        b88.setOnClickListener(this)
-        if(b89.isClickable)
-        b89.setOnClickListener(this)
-        if(b91.isClickable)
-        b91.setOnClickListener(this)
-        if(b92.isClickable)
-        b92.setOnClickListener(this)
-        if(b93.isClickable)
-        b93.setOnClickListener(this)
-        if(b94.isClickable)
-        b94.setOnClickListener(this)
-        if(b95.isClickable)
-        b95.setOnClickListener(this)
-        if(b96.isClickable)
-        b96.setOnClickListener(this)
-        if(b97.isClickable)
-        b97.setOnClickListener(this)
-        if(b98.isClickable)
-        b98.setOnClickListener(this)
-        if(b99.isClickable)
-        b99.setOnClickListener(this)
+        if (b11.isClickable)
+            b11.setOnClickListener(this)
+        if (b12.isClickable)
+            b12.setOnClickListener(this)
+        if (b13.isClickable)
+            b13.setOnClickListener(this)
+        if (b14.isClickable)
+            b14.setOnClickListener(this)
+        if (b15.isClickable)
+            b15.setOnClickListener(this)
+        if (b16.isClickable)
+            b16.setOnClickListener(this)
+        if (b17.isClickable)
+            b17.setOnClickListener(this)
+        if (b18.isClickable)
+            b18.setOnClickListener(this)
+        if (b19.isClickable)
+            b19.setOnClickListener(this)
+        if (b21.isClickable)
+            b21.setOnClickListener(this)
+        if (b22.isClickable)
+            b22.setOnClickListener(this)
+        if (b23.isClickable)
+            b23.setOnClickListener(this)
+        if (b24.isClickable)
+            b24.setOnClickListener(this)
+        if (b25.isClickable)
+            b25.setOnClickListener(this)
+        if (b26.isClickable)
+            b26.setOnClickListener(this)
+        if (b27.isClickable)
+            b27.setOnClickListener(this)
+        if (b28.isClickable)
+            b28.setOnClickListener(this)
+        if (b29.isClickable)
+            b29.setOnClickListener(this)
+        if (b31.isClickable)
+            b31.setOnClickListener(this)
+        if (b32.isClickable)
+            b32.setOnClickListener(this)
+        if (b33.isClickable)
+            b33.setOnClickListener(this)
+        if (b34.isClickable)
+            b34.setOnClickListener(this)
+        if (b35.isClickable)
+            b35.setOnClickListener(this)
+        if (b36.isClickable)
+            b36.setOnClickListener(this)
+        if (b37.isClickable)
+            b37.setOnClickListener(this)
+        if (b38.isClickable)
+            b38.setOnClickListener(this)
+        if (b39.isClickable)
+            b39.setOnClickListener(this)
+        if (b41.isClickable)
+            b41.setOnClickListener(this)
+        if (b42.isClickable)
+            b42.setOnClickListener(this)
+        if (b43.isClickable)
+            b43.setOnClickListener(this)
+        if (b44.isClickable)
+            b44.setOnClickListener(this)
+        if (b45.isClickable)
+            b45.setOnClickListener(this)
+        if (b46.isClickable)
+            b46.setOnClickListener(this)
+        if (b47.isClickable)
+            b47.setOnClickListener(this)
+        if (b48.isClickable)
+            b48.setOnClickListener(this)
+        if (b49.isClickable)
+            b49.setOnClickListener(this)
+        if (b51.isClickable)
+            b51.setOnClickListener(this)
+        if (b52.isClickable)
+            b52.setOnClickListener(this)
+        if (b53.isClickable)
+            b53.setOnClickListener(this)
+        if (b54.isClickable)
+            b54.setOnClickListener(this)
+        if (b55.isClickable)
+            b55.setOnClickListener(this)
+        if (b56.isClickable)
+            b56.setOnClickListener(this)
+        if (b57.isClickable)
+            b57.setOnClickListener(this)
+        if (b58.isClickable)
+            b58.setOnClickListener(this)
+        if (b59.isClickable)
+            b59.setOnClickListener(this)
+        if (b61.isClickable)
+            b61.setOnClickListener(this)
+        if (b62.isClickable)
+            b62.setOnClickListener(this)
+        if (b63.isClickable)
+            b63.setOnClickListener(this)
+        if (b64.isClickable)
+            b64.setOnClickListener(this)
+        if (b65.isClickable)
+            b65.setOnClickListener(this)
+        if (b66.isClickable)
+            b66.setOnClickListener(this)
+        if (b67.isClickable)
+            b67.setOnClickListener(this)
+        if (b68.isClickable)
+            b68.setOnClickListener(this)
+        if (b69.isClickable)
+            b69.setOnClickListener(this)
+        if (b71.isClickable)
+            b71.setOnClickListener(this)
+        if (b72.isClickable)
+            b72.setOnClickListener(this)
+        if (b73.isClickable)
+            b73.setOnClickListener(this)
+        if (b74.isClickable)
+            b74.setOnClickListener(this)
+        if (b75.isClickable)
+            b75.setOnClickListener(this)
+        if (b76.isClickable)
+            b76.setOnClickListener(this)
+        if (b77.isClickable)
+            b77.setOnClickListener(this)
+        if (b78.isClickable)
+            b78.setOnClickListener(this)
+        if (b79.isClickable)
+            b79.setOnClickListener(this)
+        if (b81.isClickable)
+            b81.setOnClickListener(this)
+        if (b82.isClickable)
+            b82.setOnClickListener(this)
+        if (b83.isClickable)
+            b83.setOnClickListener(this)
+        if (b84.isClickable)
+            b84.setOnClickListener(this)
+        if (b85.isClickable)
+            b85.setOnClickListener(this)
+        if (b86.isClickable)
+            b86.setOnClickListener(this)
+        if (b87.isClickable)
+            b87.setOnClickListener(this)
+        if (b88.isClickable)
+            b88.setOnClickListener(this)
+        if (b89.isClickable)
+            b89.setOnClickListener(this)
+        if (b91.isClickable)
+            b91.setOnClickListener(this)
+        if (b92.isClickable)
+            b92.setOnClickListener(this)
+        if (b93.isClickable)
+            b93.setOnClickListener(this)
+        if (b94.isClickable)
+            b94.setOnClickListener(this)
+        if (b95.isClickable)
+            b95.setOnClickListener(this)
+        if (b96.isClickable)
+            b96.setOnClickListener(this)
+        if (b97.isClickable)
+            b97.setOnClickListener(this)
+        if (b98.isClickable)
+            b98.setOnClickListener(this)
+        if (b99.isClickable)
+            b99.setOnClickListener(this)
 
         val clr: Button = view.findViewById(R.id.clear)
         val one: Button = view.findViewById(R.id.one)
@@ -500,7 +505,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
         eight.setOnClickListener(this)
         nine.setOnClickListener(this)
 
-        val reset:Button = view.findViewById(R.id.resetButton)
+        val reset: Button = view.findViewById(R.id.resetButton)
         reset.setOnClickListener(this)
 
         return view
@@ -513,12 +518,12 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
 
-        if(v?.isClickable==false)
+        if (v?.isClickable == false)
             return
-        if(resetButton.text.toString()=="BACK" && v?.id != resetButton.id){
+        if (resetButton.text.toString() == "BACK" && v?.id != resetButton.id) {
             return
         }
-        when (v?.id){
+        when (v?.id) {
             R.id.clear -> {
                 selectedButton?.text = ""
                 if (selectedButton != null) {
@@ -660,7 +665,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
         }
 
-        if (selectedButton != null){
+        if (selectedButton != null) {
             selectedButton!!.setBackgroundResource(R.drawable.button_border)
             removeHighlight(selectedButton!!)
         }
@@ -669,44 +674,44 @@ class PlayScreen : Fragment(), View.OnClickListener {
         selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
     }
 
-    private fun removeHighlight(button: Button){
+    private fun removeHighlight(button: Button) {
 
         if (selectedButton == null) return
 
         val row = reverseMap[button]?.get(1)?.toString()?.toInt()
         val col = reverseMap[button]?.get(2)?.toString()?.toInt()
 
-        for (i in 0 until 9){
+        for (i in 0 until 9) {
             if (row != null) {
-                if (buttonMap["b${row}${i + 1}"]?.isClickable!!){
+                if (buttonMap["b${row}${i + 1}"]?.isClickable!!) {
                     buttonMap["b${row}${i + 1}"]?.setBackgroundResource(R.drawable.button_border)
                 }
             }
         }
-        for (i in 0 until 9){
+        for (i in 0 until 9) {
             if (col != null) {
-                if (buttonMap["b${i + 1}${col}"]?.isClickable!!){
+                if (buttonMap["b${i + 1}${col}"]?.isClickable!!) {
                     buttonMap["b${i + 1}${col}"]?.setBackgroundResource(R.drawable.button_border)
                 }
             }
         }
     }
 
-    private fun highlight(button: Button){
+    private fun highlight(button: Button) {
 
         val row = reverseMap[button]?.get(1)?.toString()?.toInt()
         val col = reverseMap[button]?.get(2)?.toString()?.toInt()
 
-        for (i in 0 until 9){
+        for (i in 0 until 9) {
             if (row != null) {
-                if (buttonMap["b${row}${i + 1}"]?.isClickable!!){
+                if (buttonMap["b${row}${i + 1}"]?.isClickable!!) {
                     buttonMap["b${row}${i + 1}"]?.setBackgroundResource(R.drawable.highlighted_button)
                 }
             }
         }
-        for (i in 0 until 9){
+        for (i in 0 until 9) {
             if (col != null) {
-                if (buttonMap["b${i + 1}${col}"]?.isClickable!!){
+                if (buttonMap["b${i + 1}${col}"]?.isClickable!!) {
                     buttonMap["b${i + 1}${col}"]?.setBackgroundResource(R.drawable.highlighted_button)
                 }
             }
@@ -714,14 +719,14 @@ class PlayScreen : Fragment(), View.OnClickListener {
     }
 
 
-    private fun resetBoard(){
+    private fun resetBoard() {
         if (selectedButton == null) return
         removeHighlight(selectedButton!!)
         selectedButton!!.setBackgroundResource(R.drawable.button_border)
         selectedButton = null
-        for (i in 0 until 9){
-            for (j in 0 until 9){
-                if (buttonMap["b${i + 1}${j + 1}"]?.isClickable!!){
+        for (i in 0 until 9) {
+            for (j in 0 until 9) {
+                if (buttonMap["b${i + 1}${j + 1}"]?.isClickable!!) {
                     buttonMap["b${i + 1}${j + 1}"]?.text = ""
                     userInputBoard[i][j] = 0
                 }
@@ -732,38 +737,34 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun check() {
-        for(i in 0..8)
-            for(j in 0..8){
+        for (i in 0..8)
+            for (j in 0..8) {
 
-                if(userInputBoard[i][j]==0)
-                {
+                if (userInputBoard[i][j] == 0) {
                     Log.i("check", "er 1")
                     return
                 }
 
-                for(k in 0..8){
-                    if(userInputBoard[i][j]==userInputBoard[i][k] && j!=k)
-                    {
+                for (k in 0..8) {
+                    if (userInputBoard[i][j] == userInputBoard[i][k] && j != k) {
                         Log.i("check", "er 2 $i $j $k ${userInputBoard[i][j]}")
                         return
                     }
-                    if(userInputBoard[i][j]==userInputBoard[k][j] && i!=k)
-                    {
+                    if (userInputBoard[i][j] == userInputBoard[k][j] && i != k) {
                         Log.i("check", "er 3 $i $j $k ${userInputBoard[i][j]}")
                         return
                     }
                 }
             }
-        for(a in 0..2)
-            for(b in 0..2){
-                for(i in 0..2)
-                    for(j in 0..2) {
+        for (a in 0..2)
+            for (b in 0..2) {
+                for (i in 0..2)
+                    for (j in 0..2) {
                         val r = 3 * a
                         val c = 3 * b
                         for (x in 0..2)
                             for (y in 0..2) {
-                                if (userInputBoard[i + r][j + c] == userInputBoard[x + r][y + c] && (x != i || y != j))
-                                {
+                                if (userInputBoard[i + r][j + c] == userInputBoard[x + r][y + c] && (x != i || y != j)) {
                                     Log.i("check", "er here")
                                     return
                                 }
@@ -775,39 +776,39 @@ class PlayScreen : Fragment(), View.OnClickListener {
         resetButton.text = "BACK"
     }
 
-    private fun generatematrix(){
+    private fun generatematrix() {
         solveSudoku(9)
         val uplift = (1..9).random()
-        for(i in 0..8)
-            for(j in 0..8)
-            matrix[i][j]=(matrix[i][j]+uplift)%9 + 1
-        for(count in 1..38) {
-            val i=(0..8).random()
-            val j=(0..8).random()
-            val key = "b${(i+1)}${(j+1)}"
+        for (i in 0..8)
+            for (j in 0..8)
+                matrix[i][j] = (matrix[i][j] + uplift) % 9 + 1
+        for (count in 1..38) {
+            val i = (0..8).random()
+            val j = (0..8).random()
+            val key = "b${(i + 1)}${(j + 1)}"
             userInputBoard[i][j] = matrix[i][j]
             buttonMap[key]?.text = matrix[i][j].toString()
             buttonMap[key]?.setTextColor(Color.parseColor("#ffffff"))
             buttonMap[key]?.setBackgroundResource(R.drawable.selected_button_border)
             buttonMap[key]?.setTypeface(null, BOLD)
-            buttonMap[key]?.isClickable=false
+            buttonMap[key]?.isClickable = false
         }
     }
 
 
-    private fun isSafe(row: Int, col: Int, num: Int):Boolean{
+    private fun isSafe(row: Int, col: Int, num: Int): Boolean {
 
-        for (d in 0 until 9){
-            if(d==col)
+        for (d in 0 until 9) {
+            if (d == col)
                 continue
-            if (matrix[row][d] == num){
+            if (matrix[row][d] == num) {
                 return false
             }
         }
-        for (r in 0 until 9){
-            if(r==row)
+        for (r in 0 until 9) {
+            if (r == row)
                 continue
-            if (matrix[r][col] == num){
+            if (matrix[r][col] == num) {
                 return false
             }
         }
@@ -816,9 +817,9 @@ class PlayScreen : Fragment(), View.OnClickListener {
         val boxRowStart = row - row % sqrt
         val boxColStart = col - col % sqrt
 
-        for (r in boxRowStart until (boxRowStart+sqrt)){
-            for (d in boxColStart until (boxColStart+sqrt)){
-                if(d==col && r==row)
+        for (r in boxRowStart until (boxRowStart + sqrt)) {
+            for (d in boxColStart until (boxColStart + sqrt)) {
+                if (d == col && r == row)
                     continue
                 if (matrix[r][d] == num)
                     return false
@@ -827,33 +828,32 @@ class PlayScreen : Fragment(), View.OnClickListener {
         return true
     }
 
-    private fun solveSudoku(N: Int):Boolean{
+    private fun solveSudoku(N: Int): Boolean {
         var row = -1
         var col = -1
         var isEmpty = true
-        for (i in 0 until N){
-            for (j in 0 until N){
-                if (matrix[i][j] == 0){
+        for (i in 0 until N) {
+            for (j in 0 until N) {
+                if (matrix[i][j] == 0) {
                     row = i
                     col = j
                     isEmpty = false
                     break
                 }
             }
-            if (!isEmpty){
+            if (!isEmpty) {
                 break
             }
         }
-        if (isEmpty){
+        if (isEmpty) {
             return true
         }
-        for (num in 1 until N+1){
-            if (isSafe(row, col, num)){
+        for (num in 1 until N + 1) {
+            if (isSafe(row, col, num)) {
                 matrix[row][col] = num
-                if (solveSudoku(N)){
+                if (solveSudoku(N)) {
                     return true
-                }
-                else{
+                } else {
                     matrix[row][col] = 0
                 }
             }
@@ -862,9 +862,9 @@ class PlayScreen : Fragment(), View.OnClickListener {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setBoard(){
-        for(i in 0..8)
-            for (j in 0..8){
+    private fun setBoard() {
+        for (i in 0..8)
+            for (j in 0..8) {
                 buttonMap["b${i + 1}${j + 1}"]?.text = "${matrix[i][j]}"
             }
         resetButton.text = "BACK"
