@@ -30,4 +30,8 @@
     <string name="medium">MEDIUM</string>
     <string name="hard">HARD</string>
     <string name="easy">EASY</string>
+    <string name="rate">Rate</string>
+    <string name="more">More</string>
+    <string name="share">Share</string>
+    <string name="policy">Policy</string>
 </resources>

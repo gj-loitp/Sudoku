@@ -74,9 +74,62 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/launch_screen_buttons"
+                android:paddingHorizontal="16dp"
                 android:text="@string/about"
                 android:textColor="@android:color/white"
-                android:textSize="25sp" />
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/btRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/launch_screen_buttons"
+                android:paddingHorizontal="16dp"
+                android:text="@string/rate"
+                android:textColor="@android:color/white"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/btMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/launch_screen_buttons"
+                android:paddingHorizontal="16dp"
+                android:text="@string/more"
+                android:textColor="@android:color/white"
+                android:textSize="22sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/launch_screen_buttons"
+                android:paddingHorizontal="16dp"
+                android:text="@string/share"
+                android:textColor="@android:color/white"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/btPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/launch_screen_buttons"
+                android:paddingHorizontal="16dp"
+                android:text="@string/policy"
+                android:textColor="@android:color/white"
+                android:textSize="22sp" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>
