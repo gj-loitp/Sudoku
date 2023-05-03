@@ -11,7 +11,9 @@ import android.app.Application
 //TODO ad
 //TODO keystore
 //TODO proguard
-//TODO status bar color
+//TODO remove full screen
+//done
+//status bar color
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
