@@ -16,7 +16,7 @@ class DifficultyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_difficulty, container, false)
+        val view: View = inflater.inflate(R.layout.f_difficulty, container, false)
 
         val easyButton: Button = view.findViewById(R.id.easybutton)
         val mediumButton: Button = view.findViewById(R.id.mediumbutton)

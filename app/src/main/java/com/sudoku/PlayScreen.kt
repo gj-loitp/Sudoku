@@ -12,10 +12,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.sudoku.databinding.FragmentPlayScreenBinding
+import com.sudoku.databinding.FPlayScreenBinding
 
 class PlayScreen : Fragment(), View.OnClickListener {
-    private lateinit var binding: FragmentPlayScreenBinding
+    private lateinit var binding: FPlayScreenBinding
     private var selectedButton: Button? = null
     private var userInputBoard = Array(9) { IntArray(9) { 0 } }
     private var matrix = Array(9) { IntArray(9) { 0 } }
@@ -509,7 +509,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPlayScreenBinding.inflate(inflater, container, false)
+        binding = FPlayScreenBinding.inflate(inflater, container, false)
         return binding.root
     }
 

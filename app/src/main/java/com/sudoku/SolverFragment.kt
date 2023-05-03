@@ -1,6 +1,5 @@
 package com.sudoku
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -23,7 +22,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view: View = inflater.inflate(R.layout.fragment_solver, container, false)
+        val view: View = inflater.inflate(R.layout.f_solver, container, false)
 
         Log.i("Solver", "in solver fragment")
         val b11: Button = view.findViewById(R.id.b11)

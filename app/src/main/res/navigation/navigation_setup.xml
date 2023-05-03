@@ -8,7 +8,7 @@
         android:id="@+id/launchScreen"
         android:name="com.sudoku.LaunchScreen"
         android:label="fragment_launch_screen"
-        tools:layout="@layout/fragment_launch_screen" >
+        tools:layout="@layout/f_launch_screen">
         <action
             android:id="@+id/action_launchScreen_to_aboutFragment"
             app:destination="@id/aboutFragment" />
@@ -23,7 +23,7 @@
         android:id="@+id/playScreen"
         android:name="com.sudoku.PlayScreen"
         android:label="fragment_play_screen"
-        tools:layout="@layout/fragment_play_screen" >
+        tools:layout="@layout/f_play_screen">
         <action
             android:id="@+id/action_playScreen_to_launchScreen"
             app:destination="@id/launchScreen"
@@ -34,7 +34,7 @@
         android:id="@+id/aboutFragment"
         android:name="com.sudoku.AboutFragment"
         android:label="fragment_about"
-        tools:layout="@layout/fragment_about" >
+        tools:layout="@layout/f_about">
         <action
             android:id="@+id/action_aboutFragment_to_launchScreen"
             app:destination="@id/launchScreen"
@@ -45,7 +45,7 @@
         android:id="@+id/solverFragment"
         android:name="com.sudoku.SolverFragment"
         android:label="fragment_solver"
-        tools:layout="@layout/fragment_solver" >
+        tools:layout="@layout/f_solver">
         <action
             android:id="@+id/action_solverFragment_to_launchScreen"
             app:destination="@id/launchScreen"
@@ -56,7 +56,7 @@
         android:id="@+id/difficultyFragment"
         android:name="com.sudoku.DifficultyFragment"
         android:label="fragment_difficulty"
-        tools:layout="@layout/fragment_difficulty" >
+        tools:layout="@layout/f_difficulty">
         <action
             android:id="@+id/action_difficultyFragment_to_launchScreen"
             app:destination="@id/launchScreen"
