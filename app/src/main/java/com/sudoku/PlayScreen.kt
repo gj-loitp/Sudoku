@@ -25,16 +25,24 @@ class PlayScreen : Fragment(), View.OnClickListener {
     private var initialSolveTime = 900000L
     private lateinit var difficultyLevel: String
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FPlayScreenBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.i("Solver", "in play fragment")
-
         difficultyLevel = arguments?.getString("difficulty_text").toString()
         initialSolveTime = 900000L
-        if (difficultyLevel == "easy") initialSolveTime = 900000L
-        else if (difficultyLevel == "medium") initialSolveTime = 600000L
-        else initialSolveTime = 300000L
+        initialSolveTime = when (difficultyLevel) {
+            "easy" -> 900000L
+            "medium" -> 600000L
+            else -> 300000L
+        }
 
         timerVal = object : CountDownTimer(initialSolveTime, 1000) {
             @SuppressLint("SetTextI18n")
@@ -54,12 +62,12 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 // Time is up
                 Toast.makeText(
                     context,
-                    "You ran out of time!!\nHere is the solution!",
+                    "You ran out of time!\nHere is the solution!",
                     Toast.LENGTH_LONG
                 ).show()
-                if (selectedButton != null) {
-                    selectedButton!!.setBackgroundResource(R.drawable.button_border)
-                    removeHighlight(selectedButton!!)
+                selectedButton?.let {
+                    it.setBackgroundResource(R.drawable.button_border)
+                    removeHighlight(it)
                 }
                 setBoard()
             }
@@ -315,7 +323,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
         reverseMap[b98] = "b98"
         reverseMap[b99] = "b99"
 
-        generatematrix()
+        generateMatrix()
         if (b11.isClickable)
             b11.setOnClickListener(this)
         if (b12.isClickable)
@@ -505,14 +513,6 @@ class PlayScreen : Fragment(), View.OnClickListener {
         reset.setOnClickListener(this)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FPlayScreenBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         timerVal?.cancel()
@@ -529,16 +529,16 @@ class PlayScreen : Fragment(), View.OnClickListener {
             R.id.clear -> {
                 selectedButton?.text = ""
                 if (selectedButton != null) {
-                    Log.i(
-                        "index",
-                        "${selectedButton!!.id} ${
-                            reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
-                        } ${
-                            reverseMap[selectedButton]?.get(
-                                2
-                            )?.toString()?.toInt()
-                        } "
-                    )
+//                    Log.i(
+//                        "index",
+//                        "${selectedButton!!.id} ${
+//                            reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
+//                        } ${
+//                            reverseMap[selectedButton]?.get(
+//                                2
+//                            )?.toString()?.toInt()
+//                        } "
+//                    )
                     val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
                     val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                     if (col != null && row != null) {
@@ -677,13 +677,15 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
         }
 
-        if (selectedButton != null) {
-            selectedButton!!.setBackgroundResource(R.drawable.button_border)
-            removeHighlight(selectedButton!!)
+        selectedButton?.let {
+            it.setBackgroundResource(R.drawable.button_border)
+            removeHighlight(it)
         }
         selectedButton = v as Button
-        highlight(selectedButton!!)
-        selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
+        selectedButton?.let {
+            highlight(it)
+            it.setBackgroundResource(R.drawable.selected_button_border)
+        }
     }
 
     private fun removeHighlight(button: Button) {
@@ -695,14 +697,14 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
         for (i in 0 until 9) {
             if (row != null) {
-                if (buttonMap["b${row}${i + 1}"]?.isClickable!!) {
+                if (buttonMap["b${row}${i + 1}"]?.isClickable == true) {
                     buttonMap["b${row}${i + 1}"]?.setBackgroundResource(R.drawable.button_border)
                 }
             }
         }
         for (i in 0 until 9) {
             if (col != null) {
-                if (buttonMap["b${i + 1}${col}"]?.isClickable!!) {
+                if (buttonMap["b${i + 1}${col}"]?.isClickable == true) {
                     buttonMap["b${i + 1}${col}"]?.setBackgroundResource(R.drawable.button_border)
                 }
             }
@@ -716,29 +718,30 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
         for (i in 0 until 9) {
             if (row != null) {
-                if (buttonMap["b${row}${i + 1}"]?.isClickable!!) {
+                if (buttonMap["b${row}${i + 1}"]?.isClickable == true) {
                     buttonMap["b${row}${i + 1}"]?.setBackgroundResource(R.drawable.highlighted_button)
                 }
             }
         }
         for (i in 0 until 9) {
             if (col != null) {
-                if (buttonMap["b${i + 1}${col}"]?.isClickable!!) {
+                if (buttonMap["b${i + 1}${col}"]?.isClickable == true) {
                     buttonMap["b${i + 1}${col}"]?.setBackgroundResource(R.drawable.highlighted_button)
                 }
             }
         }
     }
 
-
     private fun resetBoard() {
         if (selectedButton == null) return
-        removeHighlight(selectedButton!!)
-        selectedButton!!.setBackgroundResource(R.drawable.button_border)
+        selectedButton?.let {
+            removeHighlight(it)
+        }
+        selectedButton?.setBackgroundResource(R.drawable.button_border)
         selectedButton = null
         for (i in 0 until 9) {
             for (j in 0 until 9) {
-                if (buttonMap["b${i + 1}${j + 1}"]?.isClickable!!) {
+                if (buttonMap["b${i + 1}${j + 1}"]?.isClickable == true) {
                     buttonMap["b${i + 1}${j + 1}"]?.text = ""
                     userInputBoard[i][j] = 0
                 }
@@ -783,12 +786,12 @@ class PlayScreen : Fragment(), View.OnClickListener {
                             }
                     }
             }
-        Toast.makeText(activity, "GREAT JOB!! YOU SOLVED IT!!", Toast.LENGTH_LONG).show()
-        timerVal!!.cancel()
+        Toast.makeText(activity, "GREAT JOB! YOU SOLVED IT!", Toast.LENGTH_LONG).show()
+        timerVal?.cancel()
         binding.resetButton.text = "BACK"
     }
 
-    private fun generatematrix() {
+    private fun generateMatrix() {
         solveSudoku(9)
         val uplift = (1..9).random()
         for (i in 0..8)
@@ -806,7 +809,6 @@ class PlayScreen : Fragment(), View.OnClickListener {
             buttonMap[key]?.isClickable = false
         }
     }
-
 
     private fun isSafe(row: Int, col: Int, num: Int): Boolean {
 
