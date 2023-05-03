@@ -24,16 +24,13 @@ class LaunchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val playButton = view.findViewById<Button>(R.id.btPlay)
-        playButton.setOnClickListener {
+        binding.btPlay.setOnClickListener {
             view.findNavController().navigate(R.id.action_launchScreen_to_difficultyFragment)
         }
-        val aboutButton = view.findViewById<Button>(R.id.btAbout)
-        aboutButton.setOnClickListener {
+        binding.btAbout.setOnClickListener {
             view.findNavController().navigate(R.id.action_launchScreen_to_aboutFragment)
         }
-        val solveButton = view.findViewById<Button>(R.id.btSolver)
-        solveButton.setOnClickListener {
+        binding.btSolver.setOnClickListener {
             view.findNavController().navigate(R.id.action_launchScreen_to_solverFragment)
         }
     }
