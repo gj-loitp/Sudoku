@@ -20,11 +20,11 @@ class SolverFragment : Fragment(), View.OnClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         val view: View = inflater.inflate(R.layout.f_solver, container, false)
 
-        Log.i("Solver", "in solver fragment")
+//        Log.i("Solver", "in solver fragment")
         val b11: Button = view.findViewById(R.id.b11)
         val b12: Button = view.findViewById(R.id.b12)
         val b13: Button = view.findViewById(R.id.b13)
@@ -389,7 +389,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
         when (v?.id) {
             R.id.clear -> {
                 selectedButton?.text = ""
-                selectedButton!!.setTextColor(Color.parseColor("#000000"))
+                selectedButton?.setTextColor(Color.parseColor("#000000"))
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
                 val col = reverseMap[selectedButton]?.get(2)?.toString()?.toInt()
                 if (col != null && row != null) {
@@ -397,6 +397,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.one -> {
                 selectedButton?.text = "1"
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
@@ -406,6 +407,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.two -> {
                 selectedButton?.text = "2"
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
@@ -415,6 +417,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.three -> {
                 selectedButton?.text = "3"
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
@@ -424,6 +427,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.four -> {
                 selectedButton?.text = "4"
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
@@ -433,6 +437,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.five -> {
                 selectedButton?.text = "5"
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
@@ -442,6 +447,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.six -> {
                 selectedButton?.text = "6"
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
@@ -451,6 +457,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.seven -> {
                 selectedButton?.text = "7"
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
@@ -460,6 +467,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.eight -> {
                 selectedButton?.text = "8"
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
@@ -469,6 +477,7 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.nine -> {
                 selectedButton?.text = "9"
                 val row = reverseMap[selectedButton]?.get(1)?.toString()?.toInt()
@@ -478,15 +487,21 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.solveButton -> {
                 if (selectedButton != null) {
-                    if (selectedButton?.text?.isEmpty()!!) {
-                        removeHighlight(selectedButton!!)
-                        selectedButton!!.setTextColor(Color.parseColor("#000000"))
-                        selectedButton!!.setBackgroundResource(R.drawable.button_border)
+                    if (selectedButton?.text?.isEmpty() == true) {
+                        selectedButton?.let {
+                            removeHighlight(it)
+                            it.setTextColor(Color.parseColor("#000000"))
+                            it.setBackgroundResource(R.drawable.button_border)
+                        }
+
                     } else {
-                        removeHighlight(selectedButton!!)
-                        selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
+                        selectedButton?.let {
+                            removeHighlight(it)
+                            it.setBackgroundResource(R.drawable.selected_button_border)
+                        }
                     }
                 }
                 Log.i("solver", "solve button clicked")
@@ -502,23 +517,28 @@ class SolverFragment : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.resetButton -> {
                 resetBoard()
                 return
             }
         }
-        if (selectedButton != null) {
-            if (selectedButton!!.text.toString().isEmpty()) {
-                selectedButton!!.setTextColor(Color.parseColor("#000000"))
-                selectedButton!!.setBackgroundResource(R.drawable.button_border)
-                removeHighlight(selectedButton!!)
+        selectedButton?.let {
+            if (it.text.toString().isEmpty()) {
+                it.setTextColor(Color.parseColor("#000000"))
+                it.setBackgroundResource(R.drawable.button_border)
+                removeHighlight(it)
             }
+            removeHighlight(it)
         }
-        if (selectedButton != null) removeHighlight(selectedButton!!)
+
         selectedButton = v as Button
-        highlight(selectedButton!!)
-        selectedButton!!.setBackgroundResource(R.drawable.selected_button_border)
-        selectedButton!!.setTextColor(Color.parseColor("#ffffff"))
+
+        selectedButton?.let {
+            highlight(it)
+            it.setBackgroundResource(R.drawable.selected_button_border)
+            it.setTextColor(Color.parseColor("#ffffff"))
+        }
 
     }
 
