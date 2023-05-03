@@ -6,7 +6,7 @@
     app:startDestination="@id/launchScreen">
     <fragment
         android:id="@+id/launchScreen"
-        android:name="com.sudoku.LaunchScreen"
+        android:name="com.sudoku.LaunchFragment"
         android:label="fragment_launch_screen"
         tools:layout="@layout/f_launch_screen">
         <action
