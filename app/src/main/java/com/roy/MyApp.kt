@@ -5,6 +5,7 @@ import android.app.Application
 //TODO firebase
 //TODO ad
 //TODO keystore
+//TODO animation
 //done
 //ic_launcher
 //status bar color
