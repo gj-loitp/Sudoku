@@ -18,9 +18,9 @@ class DifficultyFragment : Fragment() {
     ): View? {
         val view: View = inflater.inflate(R.layout.f_difficulty, container, false)
 
-        val easyButton: Button = view.findViewById(R.id.easybutton)
-        val mediumButton: Button = view.findViewById(R.id.mediumbutton)
-        val hardButton: Button = view.findViewById(R.id.hardbutton)
+        val easyButton: Button = view.findViewById(R.id.btEasy)
+        val mediumButton: Button = view.findViewById(R.id.btMedium)
+        val hardButton: Button = view.findViewById(R.id.btHard)
 
         comm = activity as Communicator
 
