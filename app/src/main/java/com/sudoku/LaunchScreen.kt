@@ -19,7 +19,7 @@ class LaunchScreen : Fragment() {
         playButton.setOnClickListener {
             view.findNavController().navigate(R.id.action_launchScreen_to_difficultyFragment)
         }
-        val aboutButton = view.findViewById<Button>(R.id.about_button)
+        val aboutButton = view.findViewById<Button>(R.id.btAbout)
         aboutButton.setOnClickListener {
             view.findNavController().navigate(R.id.action_launchScreen_to_aboutFragment)
         }
