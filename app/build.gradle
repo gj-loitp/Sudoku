@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-//apply plugin: 'kotlin-android-extensions'
 
 android {
+    namespace 'com.sudoku'
     compileSdkVersion 33
 
     defaultConfig {
-        applicationId "com.sudoku"
+        applicationId "com.roy93group.sudoku"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 20230503
+        versionName "2023.05.03"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,7 +29,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'com.sudoku'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
@@ -37,7 +36,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget=11
+        jvmTarget = 11
     }
 }
 
@@ -55,8 +54,8 @@ dependencies {
     implementation "org.jetbrains.anko:anko-common:0.8.3"
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
 
+    //for testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
 }
