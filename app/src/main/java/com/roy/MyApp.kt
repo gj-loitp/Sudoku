@@ -4,8 +4,8 @@ import android.app.Application
 
 //TODO firebase
 //TODO ad
+
 //TODO keystore
-//TODO proguard
 //TODO add back button
 //TODO app version
 //TODO leak canary
@@ -17,6 +17,7 @@ import android.app.Application
 //more app
 //share app
 //policy
+//proguard
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
