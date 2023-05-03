@@ -16,8 +16,13 @@ class DifficultyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view: View = inflater.inflate(R.layout.f_difficulty, container, false)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val easyButton: Button = view.findViewById(R.id.btEasy)
         val mediumButton: Button = view.findViewById(R.id.btMedium)
@@ -37,7 +42,5 @@ class DifficultyFragment : Fragment() {
             comm.passDataCom("hard")
             view.findNavController().navigate(R.id.action_difficultyFragment_to_playScreen)
         }
-        return view
     }
-
 }
