@@ -29,6 +29,9 @@ class DifficultyFragment : Fragment() {
 
         comm = activity as Communicator
 
+        binding.btBack.setOnClickListener {
+            activity?.onBackPressed()
+        }
         binding.btEasy.setOnClickListener {
             comm.passDataCom("easy")
             view.findNavController().navigate(R.id.action_difficultyFragment_to_playScreen)
