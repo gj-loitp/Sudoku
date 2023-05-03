@@ -2,7 +2,6 @@ package com.roy
 
 import android.app.Application
 
-//TODO ic_launcher
 //TODO rate app
 //TODO more app
 //TODO share app
@@ -15,6 +14,7 @@ import android.app.Application
 //TODO app version
 //TODO leak canary
 //done
+//ic_launcher
 //status bar color
 //remove full screen
 class MyApp : Application() {
