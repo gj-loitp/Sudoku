@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/playScreen"
-        android:name="com.roy.ui.PlayScreen"
+        android:name="com.roy.ui.PlayScreenFragment"
         android:label="fragment_play_screen"
         tools:layout="@layout/f_play_screen">
         <action

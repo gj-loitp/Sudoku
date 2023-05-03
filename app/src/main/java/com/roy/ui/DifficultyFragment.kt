@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.roy.R
+import com.roy.databinding.FDifficultyBinding
 import com.roy.itf.Communicator
-import com.sudoku.R
-import com.sudoku.databinding.FDifficultyBinding
 
 class DifficultyFragment : Fragment() {
     private lateinit var binding: FDifficultyBinding

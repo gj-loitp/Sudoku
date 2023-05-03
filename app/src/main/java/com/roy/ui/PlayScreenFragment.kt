@@ -12,10 +12,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.sudoku.R
-import com.sudoku.databinding.FPlayScreenBinding
+import com.roy.R
+import com.roy.databinding.FPlayScreenBinding
 
-class PlayScreen : Fragment(), View.OnClickListener {
+class PlayScreenFragment : Fragment(), View.OnClickListener {
     private lateinit var binding: FPlayScreenBinding
     private var selectedButton: Button? = null
     private var userInputBoard = Array(9) { IntArray(9) { 0 } }

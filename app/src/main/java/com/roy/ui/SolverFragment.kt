@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.sudoku.R
+import com.roy.R
 
 class SolverFragment : Fragment(), View.OnClickListener {
 

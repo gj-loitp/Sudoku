@@ -3,9 +3,9 @@ package com.roy.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentTransaction
+import com.roy.R
+import com.roy.databinding.AMainBinding
 import com.roy.itf.Communicator
-import com.sudoku.R
-import com.sudoku.databinding.AMainBinding
 
 class MainActivity : AppCompatActivity(), Communicator {
 
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), Communicator {
         val bundle = Bundle()
         bundle.putString("difficulty_text", input)
         val transaction = this.supportFragmentManager.beginTransaction()
-        val playFrag = PlayScreen()
+        val playFrag = PlayScreenFragment()
         playFrag.arguments = bundle
         transaction.replace(R.id.mainActivityId, playFrag)
         transaction.addToBackStack(null)

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.sudoku'
+    namespace 'com.roy'
     compileSdkVersion 33
 
     defaultConfig {

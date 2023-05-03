@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sudoku.R
-import com.sudoku.databinding.FAboutBinding
+import com.roy.databinding.FAboutBinding
 
 class AboutFragment : Fragment() {
     private lateinit var binding: FAboutBinding
