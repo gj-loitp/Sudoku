@@ -12,10 +12,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_play_screen.*
-
+import com.sudoku.databinding.FragmentPlayScreenBinding
 
 class PlayScreen : Fragment(), View.OnClickListener {
+    private lateinit var binding: FragmentPlayScreenBinding
     private var selectedButton: Button? = null
     private var userInputBoard = Array(9) { IntArray(9) { 0 } }
     private var matrix = Array(9) { IntArray(9) { 0 } }
@@ -25,12 +25,8 @@ class PlayScreen : Fragment(), View.OnClickListener {
     private var initialSolveTime = 900000L
     private lateinit var difficultyLevel: String
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        val view: View = inflater.inflate(R.layout.fragment_play_screen, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         Log.i("Solver", "in play fragment")
 
@@ -51,7 +47,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 val seconds = (p0 / 1000).toInt() % 60
                 displayTimerText += if (seconds / 10 == 0) "0$seconds"
                 else "$seconds"
-                timer.text = displayTimerText
+                binding.timer.text = displayTimerText
             }
 
             override fun onFinish() {
@@ -507,8 +503,14 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
         val reset: Button = view.findViewById(R.id.resetButton)
         reset.setOnClickListener(this)
+    }
 
-        return view
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentPlayScreenBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onDestroy() {
@@ -520,7 +522,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
 
         if (v?.isClickable == false)
             return
-        if (resetButton.text.toString() == "BACK" && v?.id != resetButton.id) {
+        if (binding.resetButton.text.toString() == "BACK" && v?.id != binding.resetButton.id) {
             return
         }
         when (v?.id) {
@@ -545,6 +547,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 }
                 return
             }
+
             R.id.one -> {
                 selectedButton?.text = "1"
                 if (selectedButton != null) {
@@ -557,6 +560,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+
             R.id.two -> {
                 selectedButton?.text = "2"
                 if (selectedButton != null) {
@@ -569,6 +573,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+
             R.id.three -> {
                 selectedButton?.text = "3"
                 if (selectedButton != null) {
@@ -581,6 +586,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+
             R.id.four -> {
                 selectedButton?.text = "4"
                 if (selectedButton != null) {
@@ -593,6 +599,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+
             R.id.five -> {
                 selectedButton?.text = "5"
                 if (selectedButton != null) {
@@ -605,6 +612,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+
             R.id.six -> {
                 selectedButton?.text = "6"
                 if (selectedButton != null) {
@@ -617,6 +625,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+
             R.id.seven -> {
                 selectedButton?.text = "7"
                 if (selectedButton != null) {
@@ -629,6 +638,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+
             R.id.eight -> {
                 selectedButton?.text = "8"
                 if (selectedButton != null) {
@@ -641,6 +651,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+
             R.id.nine -> {
                 selectedButton?.text = "9"
                 if (selectedButton != null) {
@@ -653,8 +664,9 @@ class PlayScreen : Fragment(), View.OnClickListener {
                 check()
                 return
             }
+
             R.id.resetButton -> {
-                if (resetButton.text.toString() == "BACK") {
+                if (binding.resetButton.text.toString() == "BACK") {
                     Log.i("navigate", "navigating")
                     timerVal?.cancel()
                     requireActivity().onBackPressed()
@@ -773,7 +785,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
             }
         Toast.makeText(activity, "GREAT JOB!! YOU SOLVED IT!!", Toast.LENGTH_LONG).show()
         timerVal!!.cancel()
-        resetButton.text = "BACK"
+        binding.resetButton.text = "BACK"
     }
 
     private fun generatematrix() {
@@ -867,7 +879,7 @@ class PlayScreen : Fragment(), View.OnClickListener {
             for (j in 0..8) {
                 buttonMap["b${i + 1}${j + 1}"]?.text = "${matrix[i][j]}"
             }
-        resetButton.text = "BACK"
-        timer.text = "00:00"
+        binding.resetButton.text = "BACK"
+        binding.timer.text = "00:00"
     }
 }
