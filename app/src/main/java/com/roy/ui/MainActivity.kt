@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentTransaction
 import com.roy.itf.Communicator
-import com.sudoku.PlayScreen
 import com.sudoku.R
 import com.sudoku.databinding.AMainBinding
 

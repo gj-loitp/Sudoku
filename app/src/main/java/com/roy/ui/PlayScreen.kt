@@ -1,4 +1,4 @@
-package com.sudoku
+package com.roy.ui
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.sudoku.R
 import com.sudoku.databinding.FPlayScreenBinding
 
 class PlayScreen : Fragment(), View.OnClickListener {
