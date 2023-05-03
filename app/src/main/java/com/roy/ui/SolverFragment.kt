@@ -1,4 +1,4 @@
-package com.sudoku
+package com.roy.ui
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.sudoku.R
 
 class SolverFragment : Fragment(), View.OnClickListener {
 

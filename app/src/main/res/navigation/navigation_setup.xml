@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/solverFragment"
-        android:name="com.sudoku.SolverFragment"
+        android:name="com.roy.ui.SolverFragment"
         android:label="fragment_solver"
         tools:layout="@layout/f_solver">
         <action

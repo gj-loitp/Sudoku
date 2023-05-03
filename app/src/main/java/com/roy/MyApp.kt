@@ -13,6 +13,7 @@ import android.app.Application
 //TODO proguard
 //TODO add back button
 //TODO app version
+//TODO leak canary
 //done
 //status bar color
 //remove full screen
