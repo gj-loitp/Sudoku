@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.sudoku.AboutFragment"
+        android:name="com.roy.ui.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/f_about">
         <action
