@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="@string/filling_the_numbers"
-        android:textColor="@color/textcolor"
+        android:textColor="@color/textColor"
         android:textSize="35sp"
         android:gravity="center"
         android:textStyle="bold"/>
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/playing_the_game"
-            android:textColor="@color/textcolor"
+            android:textColor="@color/textColor"
             android:textSize="35sp"
             android:gravity="center"
             android:textStyle="bold"/>
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/solving_a_sudoku"
-            android:textColor="@color/textcolor"
+            android:textColor="@color/textColor"
             android:textSize="35sp"
             android:gravity="center"
             android:textStyle="bold"/>

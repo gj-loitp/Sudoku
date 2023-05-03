@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
         android:text="@string/select_difficulty"
-        android:textColor="@color/textcolor"
+        android:textColor="@color/textColor"
         android:textSize="39sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
