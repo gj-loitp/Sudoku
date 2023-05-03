@@ -18,6 +18,7 @@ import android.app.Application
 //app version
 //leak canary
 //keystore
+//ad id
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
