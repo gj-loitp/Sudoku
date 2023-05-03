@@ -11,10 +11,10 @@ import android.app.Application
 //TODO ad
 //TODO keystore
 //TODO proguard
-//TODO remove full screen
 //TODO add back button
 //done
 //status bar color
+//remove full screen
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
