@@ -12,6 +12,7 @@ import android.app.Application
 //TODO keystore
 //TODO proguard
 //TODO remove full screen
+//TODO add back button
 //done
 //status bar color
 class MyApp : Application() {
