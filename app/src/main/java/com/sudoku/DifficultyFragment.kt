@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
+import com.roy.itf.Communicator
 
 class DifficultyFragment : Fragment() {
 

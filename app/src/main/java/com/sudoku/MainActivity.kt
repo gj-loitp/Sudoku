@@ -3,6 +3,7 @@ package com.sudoku
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentTransaction
+import com.roy.itf.Communicator
 
 class MainActivity : AppCompatActivity(), Communicator {
 
@@ -12,9 +13,9 @@ class MainActivity : AppCompatActivity(), Communicator {
 
     }
 
-    override fun passDataCom(editext_input: String) {
+    override fun passDataCom(input: String) {
         val bundle = Bundle()
-        bundle.putString("difficulty_text",editext_input)
+        bundle.putString("difficulty_text",input)
 
         val transaction = this.supportFragmentManager.beginTransaction()
         val playFrag = PlayScreen()
