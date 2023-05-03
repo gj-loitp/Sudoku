@@ -10,6 +10,10 @@ import androidx.navigation.findNavController
 import com.roy.BuildConfig
 import com.roy.R
 import com.roy.databinding.FLaunchScreenBinding
+import com.roy.ext.moreApp
+import com.roy.ext.openBrowserPolicy
+import com.roy.ext.rateApp
+import com.roy.ext.shareApp
 
 class LaunchFragment : Fragment() {
     private lateinit var binding: FLaunchScreenBinding
@@ -38,16 +42,18 @@ class LaunchFragment : Fragment() {
             view.findNavController().navigate(R.id.action_launchScreen_to_solverFragment)
         }
         binding.btRate.setOnClickListener {
-
+            activity?.let {
+                it.rateApp(it.packageName)
+            }
         }
         binding.btMore.setOnClickListener {
-
+            activity?.moreApp()
         }
         binding.btShare.setOnClickListener {
-
+            activity?.shareApp()
         }
         binding.btPolicy.setOnClickListener {
-
+            activity?.openBrowserPolicy()
         }
     }
 }

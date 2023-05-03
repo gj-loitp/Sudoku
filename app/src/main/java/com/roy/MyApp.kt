@@ -2,10 +2,6 @@ package com.roy
 
 import android.app.Application
 
-//TODO rate app
-//TODO more app
-//TODO share app
-//TODO policy
 //TODO firebase
 //TODO ad
 //TODO keystore
@@ -17,6 +13,10 @@ import android.app.Application
 //ic_launcher
 //status bar color
 //remove full screen
+//rate app
+//more app
+//share app
+//policy
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
