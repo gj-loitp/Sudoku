@@ -12,6 +12,7 @@ import android.app.Application
 //TODO keystore
 //TODO proguard
 //TODO add back button
+//TODO app version
 //done
 //status bar color
 //remove full screen
