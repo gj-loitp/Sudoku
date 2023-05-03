@@ -4,11 +4,7 @@ import android.app.Application
 
 //TODO firebase
 //TODO ad
-
 //TODO keystore
-//TODO add back button
-//TODO app version
-//TODO leak canary
 //done
 //ic_launcher
 //status bar color
@@ -18,6 +14,9 @@ import android.app.Application
 //share app
 //policy
 //proguard
+//add back button
+//app version
+//leak canary
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
