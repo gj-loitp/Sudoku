@@ -1,13 +1,13 @@
-package com.sudoku
+package com.roy.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.findNavController
 import com.roy.itf.Communicator
+import com.sudoku.R
 import com.sudoku.databinding.FDifficultyBinding
 
 class DifficultyFragment : Fragment() {

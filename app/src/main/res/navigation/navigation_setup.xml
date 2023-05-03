@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/difficultyFragment"
-        android:name="com.sudoku.DifficultyFragment"
+        android:name="com.roy.ui.DifficultyFragment"
         android:label="fragment_difficulty"
         tools:layout="@layout/f_difficulty">
         <action
