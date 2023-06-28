@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.roy93group.sudoku",
+  "variantName": "productionRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 20230503,
+      "versionName": "2023.05.03",
+      "outputFile": "com.roy93group.sudokurelease_2023.05.03_20230503.apk"
+    }
+  ],
+  "elementType": "File"
+}
