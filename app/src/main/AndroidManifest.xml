@@ -21,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="@string/SDK_KEY" />
     </application>
 
 </manifest>
