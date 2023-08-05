@@ -1,21 +1,37 @@
 package com.roy.ui
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentTransaction
+import com.applovin.mediation.ads.MaxAdView
 import com.roy.R
 import com.roy.databinding.AMainBinding
+import com.roy.ext.createAdBanner
 import com.roy.itf.Communicator
 
 class MainActivity : AppCompatActivity(), Communicator {
 
     private lateinit var binding: AMainBinding
+    private var adView: MaxAdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = AMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        adView = this@MainActivity.createAdBanner(
+            logTag = MainActivity::class.java.simpleName,
+            bkgColor = Color.TRANSPARENT,
+            viewGroup = binding.flAd,
+            isAdaptiveBanner = true,
+        )
+    }
+
+    override fun onDestroy() {
+        adView?.destroy()
+        super.onDestroy()
     }
 
     override fun passDataCom(input: String) {
