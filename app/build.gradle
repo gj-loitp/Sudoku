@@ -3,14 +3,14 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.roy'
-    compileSdkVersion 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.roy93group.sudoku"
         minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 20230503
-        versionName "2023.05.03"
+        targetSdkVersion 34
+        versionCode 20230805
+        versionName "2023.08.05"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -96,20 +96,20 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
-    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.5.3"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.6.0"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation "org.jetbrains.anko:anko-common:0.8.3"
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
     //for testing
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
+//    testImplementation 'junit:junit:4.13.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
 }
