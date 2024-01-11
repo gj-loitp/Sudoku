@@ -9,8 +9,8 @@ android {
         applicationId "com.roy93group.sudoku"
         minSdkVersion 21
         targetSdkVersion 34
-        versionCode 20230805
-        versionName "2023.08.05"
+        versionCode 20240111
+        versionName "2024.01.11"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -59,13 +59,13 @@ android {
         }
     }
 
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
+    android.applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
             outputFileName = defaultConfig.applicationId + buildType.name + "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk"
         }
     }
 
-    flavorDimensions "type"
+    flavorDimensions.add("type")
     productFlavors {
 
         dev {
