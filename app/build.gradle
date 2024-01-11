@@ -78,8 +78,8 @@ android {
             resValue("string", "BANNER", "a3983ed3b7852639")
             resValue("string", "INTER", "a80209be47767f02")
 
-            resValue("string", "EnableAdInter", "true")
-            resValue("string", "EnableAdBanner", "true")
+            resValue("string", "EnableAdInter", "false")
+            resValue("string", "EnableAdBanner", "false")
         }
 
         production {
