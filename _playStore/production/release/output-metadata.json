@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.roy93group.sudoku",
+  "variantName": "productionRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 20240111,
+      "versionName": "2024.01.11",
+      "outputFile": "com.roy93group.sudokurelease_2024.01.11_20240111.apk"
+    }
+  ],
+  "elementType": "File"
+}
